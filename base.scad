@@ -56,6 +56,7 @@ module connectors_female(angle) {
 				polygon( points=[[0,0],[0,5],[4,5],[4,2], [1,2],[1,3],[2,4],[3,4],[3,2]], paths=[[0,1,2,3], [4,5,6,7,8]] );
 }
 
+// cut 
 module venting_holes(xnum, ynum) {
 	width = 1;
 	spacing = 1.5;
@@ -69,7 +70,10 @@ module venting_holes(xnum, ynum) {
 	}
 }
 
-module port_access() {
+// cut a recess with port access into base
+// parameters are length/width of port access hole and 
+// zPos is height of port center over underside of PCB
+module port_access(length, height, zPos) {
 	difference(){
 		union(){	
 			children();	
@@ -86,11 +90,19 @@ module port_access() {
 		translate([board_lenght/2 + wall_thickness, -(2*base_radius+5)/2, -wall_thickness]){ 
 			cube([base_radius - board_lenght/2 + 5, 2*base_radius+5 , standoff_height + wall_thickness]);
 		}
+		// cut slope
+		translate([board_lenght/2 + wall_thickness, -(2*base_radius+5)/2, standoff_height])
+			rotate([0,60,0])
+				cube([base_radius - board_lenght/2 + 5, 2*base_radius+5 , standoff_height + wall_thickness]);
+		// cut port hole
+		translate([board_lenght/2 - 1, -height/2, -height/2 + wall_thickness + ground_clearance + zPos])
+			cube([50, length, height]);
 	}
 };
 
+
 // main housing
-port_access(){
+port_access(12, 6, 1){
 	union(){
 		difference(){
 			translate([0, 0, base_height/2])
