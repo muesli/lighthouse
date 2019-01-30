@@ -21,11 +21,13 @@ module single_standoff(height, width, clearance){
 			union() {
 				difference() {
 					cube([width+wall_thickness, width+wall_thickness, height]);
-					cube([width, standoff_width, height]);
+					cube([width, standoff_width, height]);				
 				}
-				intersection(){
-					cylinder(h = clearance, r = width,  center=false);
-					cube([width, width, height]);
+				translate([width, width,0])
+					rotate([0,0,180])
+						intersection(){
+							cylinder(h = clearance, r = width,  center=false);
+							cube([width, width, height]);
 				}
 			}
 		}
