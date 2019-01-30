@@ -1,9 +1,14 @@
 
+// width of a PCB
+board_width = 25; //[20:S, 26:NodeMCUv2, 30:L, 31:NodeMCUv3]
+
+// length of a PCB
+board_lenght = 45; //[30:S, 48:NodeMCUv2, 50:L, 51:NodeMCUv3]
+
+
+module dummy_private(){} // to hide parameters from gui, place below this line
+
 $fn=256;
-
-board_width = 25;
-board_lenght = 45;
-
 base_radius = 31.4;
 base_height = 28.6;
 wall_thickness = 3;
@@ -12,6 +17,7 @@ width = base_radius * 2;
 standoff_height = 12;
 standoff_width = 5;
 ground_clearance = 4;
+
 
 // a single standoff with a small rest to keep a board from the ground
 // height: overall height; width: wall-thickness and nook, clearance: height from ground
@@ -63,19 +69,44 @@ module venting_holes(xnum, ynum) {
 	}
 }
 
-// main housing
-difference(){
-	translate([0, 0, base_height/2])
-		difference() {
-		    cylinder(h=base_height, d=width, center=true);
-		    translate([0,0,wall_thickness]) cylinder(h=base_height, d=width-wall_thickness*2, center=true);
+module port_access() {
+	difference(){
+		union(){	
+			children();	
+			// add new inner wall		
+			intersection(){
+				translate([0, 0, base_height/2])
+					    cylinder(h=base_height, d=width, center=true);		
+				translate([board_lenght/2, -(2*base_radius+5)/2 , 0]){ 
+					cube([base_radius - board_lenght/2 + 5, 2*base_radius+5, standoff_height + wall_thickness]);
+				}
+			}		
+		}		
+		// cut outer overhang
+		translate([board_lenght/2 + wall_thickness, -(2*base_radius+5)/2, -wall_thickness]){ 
+			cube([base_radius - board_lenght/2 + 5, 2*base_radius+5 , standoff_height + wall_thickness]);
 		}
-	venting_holes(10, 5);
+	}
+};
+
+// main housing
+port_access(){
+	union(){
+		difference(){
+			translate([0, 0, base_height/2])
+				difference() {
+				    cylinder(h=base_height, d=width, center=true);
+				    translate([0,0,wall_thickness]) cylinder(h=base_height, d=width-wall_thickness*2, center=true);
+				}
+			venting_holes(10, 5);
+		};
+
+		// board dummy
+		%translate([-board_lenght/2, -board_width/2, ground_clearance+wall_thickness]) cube([board_lenght, board_width, 2]);
+
+		standoffs(board_lenght, board_width, ground_clearance);
+		connectors_female(90);
+		connectors_female(270);
+
+	}
 }
-
-// board dummy
-%translate([-board_lenght/2, -board_width/2, ground_clearance+wall_thickness]) cube([board_lenght, board_width, 2]);
-
-standoffs(board_lenght, board_width, ground_clearance);
-connectors_female(90);
-connectors_female(270);
