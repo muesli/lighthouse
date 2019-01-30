@@ -50,11 +50,27 @@ module connectors_female(angle) {
 				polygon( points=[[0,0],[0,5],[4,5],[4,2], [1,2],[1,3],[2,4],[3,4],[3,2]], paths=[[0,1,2,3], [4,5,6,7,8]] );
 }
 
+module venting_holes(xnum, ynum) {
+	width = 1;
+	spacing = 1.5;
+	for(y = [0 : width+spacing : (width+spacing)*ynum])
+	{
+		for(x = [0 : width+spacing : (width+spacing)*xnum])
+		{
+			translate([x - ((width+spacing)*xnum/2),-base_radius*1.25, y - ((width+spacing)*ynum/2) + base_height/2])
+			cube([width,2.5*base_radius,width]);
+		}
+	}
+}
+
 // main housing
-translate([0, 0, base_height/2])
-difference() {
-    cylinder(h=base_height, d=width, center=true);
-    translate([0,0,wall_thickness]) cylinder(h=base_height, d=width-wall_thickness*2, center=true);
+difference(){
+	translate([0, 0, base_height/2])
+		difference() {
+		    cylinder(h=base_height, d=width, center=true);
+		    translate([0,0,wall_thickness]) cylinder(h=base_height, d=width-wall_thickness*2, center=true);
+		}
+	venting_holes(10, 5);
 }
 
 // board dummy
@@ -63,4 +79,3 @@ difference() {
 standoffs(board_lenght, board_width, ground_clearance);
 connectors_female(90);
 connectors_female(270);
-
