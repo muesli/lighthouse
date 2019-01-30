@@ -40,6 +40,14 @@ module standoffs(length, width, clearance) {
 	translate([-(length/2) + standoff_width , (width/2) - standoff_width]) rotate([0,0,90])   single_standoff(standoff_height, standoff_width, clearance);
 }
 
+module connectors_female(angle) {
+	width = 10; // in degrees
+	rotate([0,0,angle-width]) 
+		rotate_extrude(angle=width, $fn=200) 
+			translate([-base_radius+wall_thickness ,base_height-2]) 
+				polygon( points=[[0,0],[0,5],[4,5],[4,2], [1,2],[1,3],[2,4],[3,4],[3,2]], paths=[[0,1,2,3], [4,5,6,7,8]] );
+}
+
 // main housing
 translate([0, 0, base_height/2])
 difference() {
@@ -51,4 +59,6 @@ difference() {
 %translate([-board_lenght/2, -board_width/2, ground_clearance+wall_thickness]) cube([board_lenght, board_width, 2]);
 
 standoffs(board_lenght, board_width, ground_clearance);
+connectors_female(90);
+connectors_female(270);
 
