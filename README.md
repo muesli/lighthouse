@@ -4,6 +4,9 @@ The plan is to design a fully modular case for home-made ESP8266/Arduino devices
 
 This is a work in progress: https://github.com/muesli/modular-case
 
+## Word of Advice
+The latest official OpenSCAD release is 2015.03-3 (from almost four years ago). This release renders the design incorrectly. Please use a newer OpenSCAD version from git: https://github.com/openscad/openscad
+
 ## Supported bases
 - NodeMCU Amica v2, e.g. https://www.amazon.de/dp/B06Y1LZLLY
 - NodeMCU Lolin v3, e.g. https://www.amazon.de/dp/B06Y1ZPNMS
