@@ -11,6 +11,8 @@ install:
 
 script:
 - xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py
+- python -u ./scripts/generate_stl.py
+- find build
 
 after_success: |
   if [ -n "$GITHUB_API_KEY" ]; then
