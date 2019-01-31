@@ -11,35 +11,42 @@ IRC: irc://irc.freenode.net/#modular-case
 ## Word of Advice
 The latest official OpenSCAD release is 2015.03-3 (from almost four  years ago). This release renders the design incorrectly. Please use a  newer OpenSCAD version from git: https://github.com/openscad/openscad
 
-## Supported bases
-- NodeMCU Amica v2, e.g. https://www.amazon.de/dp/B06Y1LZLLY
-- NodeMCU Lolin v3, e.g. https://www.amazon.de/dp/B06Y1ZPNMS
-- Wemos D1 Mini
-- Various Arduino boards
-- (with optional large base): Raspberry Pi
-- ...
+## Bases
+- Work in progress:
+    - NodeMCU Amica v2, e.g. https://www.amazon.de/dp/B06Y1LZLLY
+    - NodeMCU Lolin v3, e.g. https://www.amazon.de/dp/B06Y1ZPNMS
+- Planned:
+    - Wemos D1 Mini
+    - Various Arduino boards
+    - (with optional large base): Raspberry Pi
+    - ...
 
 ![base animation](https://muesli.github.io/modular-case/animation.gif)
 
-## Supported modules
-- Displays
-    - OLED 0.96", e.g. https://www.amazon.de/dp/B01L9GC470
-    - OLED 1.3", e.g. https://www.amazon.de/dp/B078J78R45
-    - TFT
-- Temperature sensors
-    - DHT11/22
-- Motion sensors
-    - HC-SR501, e.g. https://www.amazon.de/dp/B07CNBYRQ7
-- Switch
-- LED
-- Battery
-    - 9V block
-- Spacer
-- ...
+## Modules
+- Work in progress:
+    - Spacer
+- Planned:
+    - Displays
+        - OLED 0.96", e.g. https://www.amazon.de/dp/B01L9GC470
+        - OLED 1.3", e.g. https://www.amazon.de/dp/B078J78R45
+        - TFT
+    - Temperature sensors
+        - DHT11/22
+    - Motion sensors
+        - HC-SR501, e.g. https://www.amazon.de/dp/B07CNBYRQ7
+    - Switch
+    - LED
+    - Battery
+        - 9V block
+    - ...
 
-## Supported caps
-- LED dome
-- ...
+## Caps
+- Work in progress:
+    - LED dome
+- Planned:
+    - Flat cap
+    - ...
 
 ## Further ideas
 - Translate the Fusion360 model to english language description
@@ -58,7 +65,6 @@ The latest official OpenSCAD release is 2015.03-3 (from almost four  years ago).
     - <fribbledom> I will try to gather as much information and links to "official" specs as I can find this afternoon
 
 ## Next steps
-
 1. Create OpenSCAD parts of the model, roughly based on the existing design (see below)
 2. Create modules from parts
 3. Profit!
