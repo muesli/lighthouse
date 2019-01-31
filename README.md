@@ -21,7 +21,7 @@ The latest official OpenSCAD release is 2015.03-3 (from almost four  years ago).
     - (with optional large base): Raspberry Pi
     - ...
 
-![base animation](https://muesli.github.io/modular-case/animation.gif)
+![base animation](https://muesli.github.io/modular-case/base.gif)
 
 ## Modules
 - Work in progress:
