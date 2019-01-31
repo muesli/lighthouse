@@ -41,17 +41,7 @@ standoff_height = 12;
 standoff_width = wall_thickness;
 ground_clearance = 4;
 
-// create main enclosure
-module base(diameter, height, base){
-	translate([0, 0, height/2])
-		difference() {
-		    cylinder(h=height, d=diameter, center=true);
-		        if(base) // remove core, keep bottom
-			    	translate([0,0,wall_thickness]) cylinder(h=height, d=diameter-wall_thickness*2, center=true);
-			    else // remove core, no bottom
-			        cylinder(h=height+1, d=diameter-wall_thickness*2, center=true);
-		}
-}
+use <common.scad>
 
 // a single standoff with a small rest to keep a board from the ground
 // height: overall height; width: wall-thickness and nook, clearance: height from ground
@@ -82,16 +72,6 @@ module standoffs(length, width, clearance) {
 	translate([(length/2) - standoff_width , -(width/2) + standoff_width]) rotate([0,0,270]) single_standoff(standoff_height, standoff_width, clearance);
 	translate([-(length/2) + standoff_width , -(width/2) + standoff_width]) rotate([0,0,180]) single_standoff(standoff_height, standoff_width, clearance);
 	translate([-(length/2) + standoff_width , (width/2) - standoff_width]) rotate([0,0,90])   single_standoff(standoff_height, standoff_width, clearance);
-}
-
-// connectors to receive another module on top
-// these are placed 10deg off-center -> counterparts should be placed -10deg off center
-module connectors_female(angle) {
-	width = 10; // in degrees
-	rotate([0,0,angle-width]) 
-		rotate_extrude(angle=width, $fn=200) 
-			translate([-base_radius+wall_thickness ,base_height-2]) 
-				polygon( points=[[0,0],[0,5],[4,5],[4,2], [1,2],[1,3],[2,4],[3,4],[3,2]], paths=[[0,1,2,3], [4,5,6,7,8]] );
 }
 
 // cut array of venting holes
@@ -148,7 +128,7 @@ module port_access(length, height) {
 port_access(port_width, port_height){
 	union(){
 		difference(){
-			base(base_diameter, base_height, true);
+			base(base_diameter, base_height, wall_thickness, true);
 			venting_holes(10, 5);
 		};
 
@@ -156,7 +136,7 @@ port_access(port_width, port_height){
 		%translate([-board_length/2, -board_width/2, ground_clearance+wall_thickness]) cube([board_length, board_width, 2]);
 
 		standoffs(board_length, board_width, ground_clearance);
-		connectors_female(90);
-		connectors_female(270);
+		connectors_female(90, base_radius, base_height, wall_thickness);
+		connectors_female(270, base_radius, base_height, wall_thickness);
 	}
 }
