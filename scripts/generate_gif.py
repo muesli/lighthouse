@@ -24,6 +24,7 @@ import logging
 import os
 import shutil
 import subprocess
+import sys
 
 from multiprocessing.dummy import Pool
 
@@ -31,21 +32,21 @@ import openscad
 
 logging.basicConfig(level=logging.DEBUG)
 
-def generate_gif(output_folder):
+def generate_gif(output_folder, output_name):
     command = [
         'convert',
         os.path.join(output_folder, 'frame*.png'),
         '-set', 'delay', '1x10',
-        os.path.join(output_folder, 'animation.gif'),
+        os.path.join(output_folder, output_name),
     ]
     logging.debug(command)
     subprocess.check_call(command)
 
-def render_rotation(output_folder, num_frames, start_frame, variables):
+def render_rotation(output_folder, input_name, num_frames, start_frame, variables):
     def render_frame(i):
         angle = 135 + i * 360 / num_frames
         openscad.run(
-            'base.scad',
+            input_name,
             os.path.join(output_folder, 'frame_%05d.png' % (start_frame + i)),
             output_size = [640, 480],
             camera_translation = [0, 0, 0],
@@ -67,8 +68,8 @@ shutil.rmtree(output_folder, ignore_errors=True)
 os.makedirs(output_folder)
 
 num_frames = 50
-render_rotation(output_folder, num_frames, 0, {
+render_rotation(output_folder, sys.argv[1], num_frames, 0, {
     'render_enclosure': 1,
 })
 
-generate_gif(output_folder)
+generate_gif(output_folder, sys.argv[2])
