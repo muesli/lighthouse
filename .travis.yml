@@ -1,0 +1,27 @@
+dist: trusty
+sudo: true
+language: generic
+
+install:
+- sudo add-apt-repository --yes ppa:openscad/releases
+- sudo apt-get update -qq
+- sudo DEBIAN_FRONTEND=noninteractive apt-get install -y openscad inkscape imagemagick xvfb
+- sudo apt-get purge -y fglrx
+- sudo pip install svg.path==2.2
+
+script:
+- xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py
+
+after_success: |
+  if [ -n "$GITHUB_API_KEY" ]; then
+    cd "$TRAVIS_BUILD_DIR"
+    cd build/animation
+    git init
+    git checkout -b gh-pages
+    git add animation.gif
+    git -c user.name='Build Bot' -c user.email='travis' commit -m 'Updated animation'
+    # Make sure to make the output quiet, or else the API token will leak!
+    # This works because the API key can replace your password.
+    git push -f -q https://muesli:$GITHUB_API_KEY@github.com/muesli/modular-case.git gh-pages &>/dev/null
+    cd "$TRAVIS_BUILD_DIR"
+  fi
