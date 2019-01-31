@@ -118,7 +118,7 @@ module port_access(length, height) {
 			rotate([0,60,0])
 				cube([base_radius - board_length/2 + 5, 2*base_radius+5 , base_radius]);
 		// cut port hole
-		translate([board_length/2 - 1, - length/2, -height/2 + wall_thickness + ground_clearance + height/2])
+		translate([board_length/2 - 1, - length/2, -height/2 + wall_thickness + ground_clearance])
 			cube([50, length, height]);
 	}
 };
