@@ -10,7 +10,7 @@ install:
 - sudo pip install svg.path==2.2
 
 script:
-- xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py assembly.scad assembly.gif
+- xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py assembly.scad assembly.gif 420
 - python -u ./scripts/generate_stl.py
 - find build
 
