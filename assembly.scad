@@ -26,6 +26,14 @@ port_width = 10; //[5:1:50]
 // height of the port hole for e.g. USB access
 port_height = 6; //[4:1:30]
 
+/* [Empty Module] */
+
+// create an empty module
+create_empty = true;
+
+// height of the empty module
+empty_height = 30; // [10:1:60]
+
 /* [Hidden] */
 
 $fn = 256;
