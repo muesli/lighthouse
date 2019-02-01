@@ -48,6 +48,12 @@ The latest official OpenSCAD release is 2015.03-3 (from almost four  years ago).
     - Flat cap
     - ...
 
+## Rendered animations
+![base animation](https://muesli.github.io/modular-case/base.gif)
+Small Base for NodeMCU v2
+![empty module animation](https://muesli.github.io/modular-case/module_empty.gif)
+Empty Spacer Module
+
 ## Further ideas
 - Translate the Fusion360 model to english language description
 - Add cable ducts to modules
