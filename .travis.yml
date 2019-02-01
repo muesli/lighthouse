@@ -11,15 +11,18 @@ install:
 
 script:
 - xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py assembly.scad assembly.gif 350
+- mv build/animation/assembly.gif build/
 - xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py base.scad base.gif 200
+- mv build/animation/base.gif build/
 - xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py module_empty.scad module_empty.gif 200
+- mv build/animation/module_empty.gif build/
 - python -u ./scripts/generate_stl.py
 - find build
 
 after_success: |
   if [ -n "$GITHUB_API_KEY" ]; then
     cd "$TRAVIS_BUILD_DIR"
-    cd build/animation
+    cd build
     git init
     git checkout -b gh-pages
     git add assembly.gif
