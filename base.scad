@@ -2,46 +2,11 @@
 and access to its ports.
 */
 
-/* [PCB Dimensions] */
-
-// width of a PCB
-board_width = 26; //[18:Ardino_nano, 23:Feather_HUZZAH, 26:NodeMCUv2, 31:NodeMCUv3, 53.3:Ardunio_Mega, 53.4:Arduino_Uno]
-
-// length of a PCB
-board_length = 48; //[45:Arduino_nano, 48:NodeMCUv2, 51:NodeMCUv3, 51:Feather_HUZZAH, 68.6:Arduino_Uno, 101.52:Ardunio_Mega]
-
-
-/* [Case Dimensions] */
-
-// diameter of the base
-base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
-
-// thickness of outer wall
-wall_thickness = 3; //[2:1:5]
-
-// height of the base
-base_height = 28.6; //[20:5:100]
-
-/* [Access Port Dimensions] */
-
-// width of the port hole for e.g. USB access
-port_width = 15; //[5:1:50]
-
-// height of the port hole for e.g. USB access
-port_height = 5; //[4:1:30]
-
-
-/* [Hidden] */
-
-$fn=256;
-
-base_radius = base_diameter / 2;
+use <common.scad>
 
 standoff_height = 12;
 standoff_width = wall_thickness;
 ground_clearance = 4;
-
-use <common.scad>
 
 // a single standoff with a small rest to keep a board from the ground
 // height: overall height; width: wall-thickness and nook, clearance: height from ground
@@ -123,20 +88,21 @@ module port_access(length, height) {
 	}
 };
 
+// main housing of the uC
+module base(base_radius, base_height, wall_thickness, board_length, board_width, port_width, port_height){
+	port_access(port_width, port_height){
+		union(){
+			difference(){
+				shell(base_radius*2, base_height, wall_thickness, true);
+				venting_holes(10, 5);
+			};
 
-// main housing
-port_access(port_width, port_height){
-	union(){
-		difference(){
-			base(base_diameter, base_height, wall_thickness, true);
-			venting_holes(10, 5);
-		};
+			// board dummy
+			%translate([-board_length/2, -board_width/2, ground_clearance+wall_thickness]) cube([board_length, board_width, 2]);
 
-		// board dummy
-		%translate([-board_length/2, -board_width/2, ground_clearance+wall_thickness]) cube([board_length, board_width, 2]);
-
-		standoffs(board_length, board_width, ground_clearance);
-		connectors_female(90, base_radius, base_height, wall_thickness);
-		connectors_female(270, base_radius, base_height, wall_thickness);
+			standoffs(board_length, board_width, ground_clearance);
+			connectors_female(90, base_radius, base_height, wall_thickness);
+			connectors_female(270, base_radius, base_height, wall_thickness);
+		}
 	}
 }
