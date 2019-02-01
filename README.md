@@ -2,6 +2,8 @@
 
 The plan is to design a fully modular case for home-made ESP8266/Arduino/Raspberry Pi devices, like temperature or motion sensors, information monitors etc.
 
+![assembly animation](https://muesli.github.io/modular-case/assembly.gif)
+
 ## Call for help
 This is still a work in progress! Know OpenSCAD and want to contribute? Check out the issue tracker, pick a ticket and let everyone know you started working on it!
 
@@ -20,8 +22,6 @@ The latest official OpenSCAD release is 2015.03-3 (from almost four  years ago).
     - Various Arduino boards
     - (with optional large base): Raspberry Pi
     - ...
-
-![base animation](https://muesli.github.io/modular-case/base.gif)
 
 ## Modules
 - Work in progress:
