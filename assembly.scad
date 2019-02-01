@@ -4,10 +4,10 @@
 /* [PCB Dimensions] */
 
 // width of a PCB
-board_width = 26; //[18:Ardino_nano, 23:Feather_HUZZAH, 26:NodeMCUv2, 31:NodeMCUv3, 53.3:Ardunio_Mega, 53.4:Arduino_Uno]
+board_width = 26; //[18:Arduino_Nano, 23:Feather_HUZZAH, 26:NodeMCUv2, 31:NodeMCUv3, 53.3:Arduino_Mega, 53.4:Arduino_Uno]
 
 // length of a PCB
-board_length = 48; //[45:Arduino_nano, 48:NodeMCUv2, 51:NodeMCUv3, 51:Feather_HUZZAH, 68.6:Arduino_Uno, 101.52:Ardunio_Mega]
+board_length = 48; //[45:Arduino_Nano, 48:NodeMCUv2, 51:NodeMCUv3, 51:Feather_HUZZAH, 68.6:Arduino_Uno, 101.52:Arduino_Mega]
 
 
 /* [Case Dimensions] */
