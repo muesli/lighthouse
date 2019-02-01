@@ -70,7 +70,7 @@ os.makedirs(output_folder)
 num_frames = 50
 cam_distance = 200
 if len(sys.argv) > 3:
-    cam_distance = sys.argv[3]
+    cam_distance = float(sys.argv[3])
 
 render_rotation(output_folder, sys.argv[1], cam_distance, num_frames, 0, {
     'render_enclosure': 1,
