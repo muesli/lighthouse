@@ -53,6 +53,8 @@ The latest official OpenSCAD release is 2015.03-3 (from almost four  years ago).
 Small Base for NodeMCU v2
 ![empty module animation](https://muesli.github.io/modular-case/module_empty.gif)
 Empty Spacer Module
+![enclosure module animation](https://muesli.github.io/modular-case/module_enclosure.gif)
+Sensor Enclosure Module
 
 ## Further ideas
 - Translate the Fusion360 model to english language description
