@@ -47,3 +47,19 @@ module connectors_male(angle, base_radius, wall_thickness) {
 					paths = [[0,1,2,3]]
 				);
 }
+
+// adds a sensor enclosure to the module
+// parameters are length/width of enclosure
+module enclosure(angle, length, width, base_radius, base_height, wall_thickness, port_radius) {
+	difference() {
+		translate([base_radius-length-wall_thickness,-width/2,0])
+			difference() {
+				cube([length, width, base_height], false);
+				translate([wall_thickness,wall_thickness,wall_thickness])
+					cube([length-wall_thickness*2, width-wall_thickness*2, base_height-wall_thickness+1], false);
+			}
+		translate([base_radius-length-wall_thickness-1, 0, base_height/2+wall_thickness/2])
+			rotate([0,90,0])
+			cylinder(wall_thickness+2, r = port_radius);
+	}
+};
