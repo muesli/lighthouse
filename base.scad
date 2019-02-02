@@ -93,7 +93,7 @@ module venting_holes(xnum, ynum) {
 }
 
 // cut a recess with port access into base
-// parameters are length/width of port access hole and
+// parameters are length/width of port access hole
 module port_access(length, height) {
 	difference() {
 		union() {
