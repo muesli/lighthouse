@@ -114,8 +114,8 @@ module port_access(length, height) {
 			}
 		}
 		// cut outer overhang
-		translate([board_length/2 + wall_thickness, -(2*base_radius+5)/2, 0]) {
-			cube([base_radius - board_length/2 + 5, 2*base_radius+5, ground_clearance + wall_thickness + 1 + height + 1]);
+		translate([board_length/2 + wall_thickness, -(2*base_radius+5)/2, -1]) {
+			cube([base_radius - board_length/2 + 5, 2*base_radius+5, ground_clearance + wall_thickness + 1 + height + 2]);
 		}
 		// cut slope
 		translate([board_length/2 + wall_thickness, -(2*base_radius+5)/2, ground_clearance + wall_thickness + 1 + height + 1])
