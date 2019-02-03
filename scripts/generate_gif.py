@@ -42,7 +42,7 @@ def generate_gif(output_folder, output_name):
     logging.debug(command)
     subprocess.check_call(command)
 
-def render_rotation(output_folder, input_name, num_frames, start_frame, variables):
+def render_rotation(output_folder, input_name, cam_distance, num_frames, start_frame, variables):
     def render_frame(i):
         angle = 135 + i * 360 / num_frames
         openscad.run(
@@ -51,7 +51,7 @@ def render_rotation(output_folder, input_name, num_frames, start_frame, variable
             output_size = [640, 480],
             camera_translation = [0, 0, 0],
             camera_rotation = [60, 0, angle],
-            camera_distance = 200,
+            camera_distance = cam_distance,
             variables = variables,
             colorscheme = 'Nature',
         )
@@ -68,7 +68,11 @@ shutil.rmtree(output_folder, ignore_errors=True)
 os.makedirs(output_folder)
 
 num_frames = 50
-render_rotation(output_folder, sys.argv[1], num_frames, 0, {
+cam_distance = 200
+if len(sys.argv) > 3:
+    cam_distance = float(sys.argv[3])
+
+render_rotation(output_folder, sys.argv[1], cam_distance, num_frames, 0, {
     'render_enclosure': 1,
 })
 
