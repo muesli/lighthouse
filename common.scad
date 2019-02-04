@@ -17,34 +17,34 @@ module connectors_female(angle, base_radius, height, wall_thickness) {
 	width = 10; // in degrees
 	rotate([0,0,angle-width])
 		rotate_extrude(angle = width, $fn = 200)
-			translate([-base_radius + wall_thickness, height-2 -0.3]) //0.3 to center scaled male pin
+			translate([-base_radius + wall_thickness, height-5.7]) //0.3 to center scaled male pin
 				polygon(
-					points = [[0,0],[0,5],[4,5],[4,2], [1,2],[1,3],[2,4],[3,4],[3,2]],
-					paths = [[0,1,2,3], [4,5,6,7,8]]
+					points = [[0,0],[0,12],[1,15],[6.8,15],[6.8,5],[1.8,0], [1.5,5.7],[1.5,5.7+3.8],[1.5+2.5,5.7+6.3],[1.5+4.5,5.7+6.3],[1.5+4.5,5.7]],
+					paths = [[0,1,2,3,4,5], [6,7,8,9,10,11]]
 				);
 }
 
 // connectors to connect to another module below
 module connectors_male(angle, base_radius, wall_thickness) {
-	width = 10; // in degrees
+	width = 15; // in degrees
 	//pin
 	rotate([0,0,angle-width])
 		rotate_extrude(angle = width, $fn = 200)
-			translate([-base_radius + wall_thickness, -2])
-				translate([0.2,0]) // counteract the non-centered scale (but leave flat on build plate)
-					scale([0.9,0.9]) // scale to leave room for easier connection
+			translate([-base_radius + wall_thickness, -5.7 + 0.45])
+				translate([0.45,0]) // counteract the non-centered scale (but leave flat on build plate)
+					scale([0.85,0.955]) // scale to leave room for easier connection (10%=[0.9,0.9])
 						polygon(
-							points = [[0,0],[0,5],[4,5],[4,2], [1,2],[1,3],[2,4],[3,4],[3,2]],
-							paths = [[4,5,6,7,8]]
+							points = [[1.5,5.7],[1.5,9.5],[4,12],[6,12],[6,5.7]],
+							paths = [[0,1,2,3,4,5]]
 						);
 
 	// pin-base
 	rotate([0,0,angle])
 		rotate_extrude(angle = width, $fn = 200)
-			translate([-base_radius + wall_thickness, -2 -0.3])
+			translate([-base_radius + wall_thickness, -5.7])
 				polygon(
-					points = [[0,2],[0,5],[4,5],[4,2], [1,2],[1,3],[2,4],[3,4],[3,2]],
-					paths = [[0,1,2,3]]
+					points = [[0,5.7],[0,12],[1,15],[6,15],[6,5.7],[1.8,5.7]],
+					paths = [[0,1,2,3,4,5]]
 				);
 }
 
@@ -63,3 +63,8 @@ module enclosure(angle, length, width, base_radius, base_height, wall_thickness,
 			cylinder(wall_thickness+2, r = port_radius);
 	}
 };
+
+
+// example renders
+connectors_female(90, 60, 40, 5);
+connectors_male(90, 60, 5);
