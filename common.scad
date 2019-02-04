@@ -32,7 +32,7 @@ module connectors_male(angle, base_radius, wall_thickness) {
 		rotate_extrude(angle = width, $fn = 200)
 			translate([-base_radius + wall_thickness, -5.7 + 0.45])
 				translate([0.45,0]) // counteract the non-centered scale (but leave flat on build plate)
-					scale([0.85,0.955]) // scale to leave room for easier connection (10%=[0.9,0.9])
+					scale([0.85,0.955]) // scale to leave room for easier connection (=-[0.9,0.9]mm)
 						polygon(
 							points = [[1.5,5.7],[1.5,9.5],[4,12],[6,12],[6,5.7]],
 							paths = [[0,1,2,3,4,5]]
