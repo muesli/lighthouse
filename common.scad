@@ -38,7 +38,7 @@ module connectors_male(angle, base_radius, wall_thickness) {
 		intersection(){ // only needed for openscad <2018
 			//rotate_extrude(angle = width, $fn = 200)  // works in openscad >2018
 			rotate_extrude($fn = 200) // works in openscad <2018 incl. thingieverse
-				translate([-base_radius + wall_thickness, -5.7 + 0.45])
+				translate([-base_radius + wall_thickness, -5.7 ])
 					translate([0.45,0]) // counteract the non-centered scale (but leave flat on build plate)
 						scale([0.85,0.955]) // scale to leave room for easier connection (=-[0.9,0.9]mm)
 							polygon(
