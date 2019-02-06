@@ -10,35 +10,33 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
 - IRC: irc://irc.freenode.net/#modular-case
 - Thingiverse: https://www.thingiverse.com/thing:3391397
 
-## Word of advice
-The latest official OpenSCAD release is 2015.03-3 (from almost four  years ago). This release renders the design incorrectly. Please use a  newer OpenSCAD version from git: https://github.com/openscad/openscad
-
 ## Bases
 - Work in progress:
     - NodeMCU Amica v2, e.g. https://www.amazon.de/dp/B06Y1LZLLY
     - NodeMCU Lolin v3, e.g. https://www.amazon.de/dp/B06Y1ZPNMS
-- Planned:
     - Wemos D1 Mini
     - Various Arduino boards
+- Planned:
     - (with optional large base): Raspberry Pi
     - ...
 
 ## Modules
 - Work in progress:
-    - Spacer
-- Planned:
     - Displays
         - OLED 0.96", e.g. https://www.amazon.de/dp/B01L9GC470
         - OLED 1.3", e.g. https://www.amazon.de/dp/B078J78R45
-        - TFT
     - Temperature sensors
         - DHT11/22
+    - Battery
+        - 9V block
+    - Spacer
+- Planned:
+    - Displays
+        - TFT
     - Motion sensors
         - HC-SR501, e.g. https://www.amazon.de/dp/B07CNBYRQ7
     - Switch
     - LED
-    - Battery
-        - 9V block
     - ...
 
 ## Caps
@@ -53,11 +51,14 @@ The latest official OpenSCAD release is 2015.03-3 (from almost four  years ago).
 #### Small Base for NodeMCU v2
 ![base animation](https://muesli.github.io/modular-case/base.gif)
 
-#### Empty Spacer Module
-![empty module animation](https://muesli.github.io/modular-case/module_empty.gif)
-
 #### Sensor Enclosure Module
 ![enclosure module animation](https://muesli.github.io/modular-case/module_enclosure.gif)
+
+#### OLED Module
+![OLED module animation](https://muesli.github.io/modular-case/module_oled.gif)
+
+#### Empty Spacer Module
+![empty module animation](https://muesli.github.io/modular-case/module_empty.gif)
 
 ## Further ideas
 - Translate the Fusion360 model to english language description
