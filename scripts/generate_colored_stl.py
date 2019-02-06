@@ -14,34 +14,34 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-
 from __future__ import division
 from __future__ import print_function
 
-import errno
-import functools
 import logging
 import os
-import shutil
-import subprocess
 import sys
 
-import openscad
+from colored_stl_exporter import ColoredStlExporter
 
-logging.basicConfig(level=logging.DEBUG)
+repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(repo_root)
 
-def generate_stl(input_name, output_folder, output_name, variables):
-    openscad.run(
-        input_name,
-        os.path.join(output_folder, output_name),
-        # variables = variables,
-    )
+import rev_info
 
-output_folder = os.path.join('build', 'stl')
 
-shutil.rmtree(output_folder, ignore_errors=True)
-os.makedirs(output_folder)
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG)
+    folder = os.path.dirname(__file__)
 
-generate_stl(sys.argv[1], output_folder, "render.stl", {
-    'render_enclosure': 1,
-})
+    openscad_variables = {
+        'render_3d': True,
+        'render_enclosure': 1,
+        'render_revision': rev_info.git_short_rev(),
+        'render_date': rev_info.current_date(),
+    }
+
+    exporter = ColoredStlExporter(
+        os.path.join(repo_root, sys.argv[1]),
+        os.path.join(repo_root, 'build'),
+        openscad_variables)
+    exporter.run()
