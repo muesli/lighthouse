@@ -11,9 +11,9 @@ module_height = 20; //[10:5:100]
 /* [OLED Dimensions] */
 
 // width of the display
-oled_height = 13; //[10:1:100]
-// height of the display
 oled_width = 26; //[10:1:100]
+// height of the display
+oled_height = 13; //[10:1:100]
 // width of the pcb
 oled_pcb_width = 27; //[10:1:100]
 // height of the pcb
