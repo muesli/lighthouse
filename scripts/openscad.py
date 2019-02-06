@@ -49,6 +49,7 @@ def run(
     command = [
         'openscad',
         '-o', output_file,
+        '--render',
     ]
 
     if output_size is not None:
