@@ -51,7 +51,7 @@ def run(
         '-o', output_file,
     ]
 
-    if output_file.endswith(".gif"):
+    if output_file.endswith(".png"):
         command += ['--render']
 
     if output_size is not None:
