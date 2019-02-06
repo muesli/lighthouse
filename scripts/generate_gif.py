@@ -36,7 +36,7 @@ def generate_gif(output_folder, output_name):
     command = [
         'convert',
         os.path.join(output_folder, 'frame*.png'),
-        '-set', 'delay', '1x10',
+        '-set', 'delay', '1x4',
         os.path.join(output_folder, output_name),
     ]
     logging.debug(command)
@@ -67,7 +67,7 @@ output_folder = os.path.join('build', 'animation')
 shutil.rmtree(output_folder, ignore_errors=True)
 os.makedirs(output_folder)
 
-num_frames = 50
+num_frames = 16
 cam_distance = 200
 if len(sys.argv) > 3:
     cam_distance = float(sys.argv[3])
