@@ -24,7 +24,7 @@ module connectors_female(angle, base_radius, height, wall_thickness) {
 						points = [[0,0],[0,12],[1,15],[6.8,15],[6.8,5],[1.8,0], [1.5,5.7],[1.5,5.7+3.8],[1.5+2.5,5.7+6.3],[1.5+4.5,5.7+6.3],[1.5+4.5,5.7]],
 						paths = [[0,1,2,3,4,5], [6,7,8,9,10,11]]
 					);
-		// only needed for openscad <2018
+			// only needed for openscad <2018
 			translate([-3*base_radius,0,height-5.7])
 				cube([3*base_radius,width,13]);
 		}
