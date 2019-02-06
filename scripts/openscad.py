@@ -49,8 +49,10 @@ def run(
     command = [
         'openscad',
         '-o', output_file,
-        '--render',
     ]
+
+    if output_file.endswith(".gif"):
+        command += ['--render']
 
     if output_size is not None:
         command += ['--imgsize=%d,%d' % tuple(output_size)]
