@@ -21,13 +21,13 @@ script:
 - xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py module_oled.scad module_oled.gif 250
 - mv build/animation/module_oled.gif build/
 - python -u ./scripts/generate_stl.py base.scad
-- mv build/colored_stl/*.stl build/base_small_nodemcuv2.stl
+- mv build/stl/*.stl build/base_small_nodemcuv2.stl
 - python -u ./scripts/generate_stl.py module_empty.scad
-- mv build/colored_stl/*.stl build/module_small_empty.stl
+- mv build/stl/*.stl build/module_small_empty.stl
 - python -u ./scripts/generate_stl.py module_enclosure.scad
-- mv build/colored_stl/*.stl build/module_small_dht11.stl
+- mv build/stl/*.stl build/module_small_dht11.stl
 - python -u ./scripts/generate_stl.py module_oled.scad
-- mv build/colored_stl/*.stl build/module_small_oled096.stl
+- mv build/stl/*.stl build/module_small_oled096.stl
 - find build
 
 after_success: |
