@@ -18,7 +18,12 @@ script:
 - mv build/animation/module_empty.gif build/
 - xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py module_enclosure.scad module_enclosure.gif 200
 - mv build/animation/module_enclosure.gif build/
-- python -u ./scripts/generate_stl.py
+- xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py module_oled.scad module_oled.gif 200
+- mv build/animation/module_oled.gif build/
+- python -u ./scripts/generate_stl.py base.scad
+- python -u ./scripts/generate_stl.py module_empty.scad
+- python -u ./scripts/generate_stl.py module_enclosure.scad
+- python -u ./scripts/generate_stl.py module_oled.scad
 - find build
 
 after_success: |
@@ -31,6 +36,8 @@ after_success: |
     git add base.gif
     git add module_empty.gif
     git add module_enclosure.gif
+    git add module_oled.gif
+    git add *.stl
     git -c user.name='Build Bot' -c user.email='travis' commit -m 'Updated animations'
     # Make sure to make the output quiet, or else the API token will leak!
     # This works because the API key can replace your password.

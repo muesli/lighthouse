@@ -41,7 +41,7 @@ if __name__ == '__main__':
     }
 
     exporter = ColoredStlExporter(
-        os.path.join(repo_root, 'base.scad'),
+        os.path.join(repo_root, sys.argv[1]),
         os.path.join(repo_root, 'build'),
         openscad_variables)
     exporter.run()
