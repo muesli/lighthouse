@@ -77,21 +77,6 @@ module standoffs(length, width, clearance) {
 			single_standoff(standoff_height, standoff_width, clearance);
 }
 
-// cut array of venting holes
-module venting_holes(xnum, ynum) {
-	width = 1;
-	spacing = 1.5;
-
-	for(y = [0 : width+spacing : (width+spacing)*ynum])
-	{
-		for(x = [0 : width+spacing : (width+spacing)*xnum])
-		{
-			translate([x - ((width+spacing)*xnum/2),-base_radius*1.25, y - ((width+spacing)*ynum/2) + base_height/2])
-				cube([width,2.5*base_radius,width]);
-		}
-	}
-}
-
 // cut a recess with port access into base
 // parameters are length/width of port access hole
 module port_access(length, height) {
@@ -125,7 +110,7 @@ module port_access(length, height) {
 		translate([board_length/2 - 1, - length/2, -height/2 + wall_thickness + ground_clearance - 1])
 			cube([50, length, height]);
 	}
-};
+}
 
 // main housing of the uC
 module base(base_radius, base_height, wall_thickness, board_length, board_width, port_width, port_height) {
@@ -133,7 +118,7 @@ module base(base_radius, base_height, wall_thickness, board_length, board_width,
 		union() {
 			difference() {
 				shell(base_radius*2, base_height, wall_thickness, true);
-				venting_holes(10, 5);
+				venting_holes(0, base_radius, base_height, 10, 5, true);
 			};
 
 			// board dummy

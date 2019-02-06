@@ -83,7 +83,23 @@ module enclosure(angle, length, width, base_radius, base_height, wall_thickness,
 	}
 };
 
+// cut array of venting holes
+module venting_holes(angle, base_radius, base_height, xnum, ynum, twosided) {
+	width = 1;
+	spacing = 1.5;
 
-// example renders
-connectors_female(90, 60, 40, 5);
-connectors_male(90, 60, 5);
+	rotate([0,0,angle])
+		for(y = [0 : width+spacing : (width+spacing)*ynum])
+		{
+			for(x = [0 : width+spacing : (width+spacing)*xnum])
+			{
+				translate([x - ((width+spacing)*xnum/2), -base_radius*1.25, y - ((width+spacing)*ynum/2) + base_height/2]) {
+					if (twosided) {
+						cube([width,2.5*base_radius,width]);
+					} else {
+						cube([width,1.5*base_radius,width]);
+					}
+				}
+			}
+		}
+}
