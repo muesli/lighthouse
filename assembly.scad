@@ -10,15 +10,24 @@ wall_thickness = 3; //[2:1:5]
 
 /* [Base Module] */
 
-// width of a PCB
-board_width = 26; //[18:Arduino_Nano, 23:Feather_HUZZAH, 26:NodeMCUv2, 30:Raspberry_Pi_ZeroW, 31:NodeMCUv3, 53.3:Arduino_Mega, 53.4:Arduino_Uno]
-// length of a PCB
-board_length = 48; //[45:Arduino_Nano, 48:NodeMCUv2, 51:NodeMCUv3, 51:Feather_HUZZAH, 65:Raspberry_Pi_ZeroW, 68.6:Arduino_Uno, 101.52:Arduino_Mega]
+//type of uC
+board = 0; //[0: Custom, 1:Arduino_Nano, 2:Arduino_Mega, 3:Arduino_Uno, 4:Feather_HUZZAH, 5:NodeMCUv2, 6:NodeMCUv3, 7:Raspberry_Pi_ZeroW]
+
+// width of a PCB (only for Custom)
+board_width = 26; //[10:0.1:150]
+// length of a PCB  (only for Custom)
+board_length = 48; //[10:0.1:150]
+
+/* [Access Port Dimensions (only for Custom)] */
 
 // width of the port hole for e.g. USB access
 port_width = 10; //[5:1:50]
 // height of the port hole for e.g. USB access
 port_height = 6; //[4:1:30]
+// position from left edge of board to middle of port
+port_ypos = 5; //[0:1:150]
+// position from bottom of pcb (negative is below)
+port_zpos = 0; //[-25:1:30]
 
 /* [Empty Module] */
 
@@ -70,7 +79,7 @@ oled_module_start = create_empty?base_height()+empty_height:base_height();
 enclosure_module_start = create_oled?oled_module_start+oled_module_height():oled_module_start;
 
 union() {
-	base(base_radius, wall_thickness, board_length, board_width, port_width, port_height);
+	base(base_radius, wall_thickness, board, port_width, port_height, port_ypos, port_zpos);
 	if (create_empty)
 		translate([0,0,empty_height])
 			empty(base_radius, empty_height, wall_thickness);
