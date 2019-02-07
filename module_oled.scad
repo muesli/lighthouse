@@ -29,37 +29,38 @@ base_radius = base_diameter / 2;
 
 frame = 1; // plastic frame around pcb
 
-// lock minimum module height
-_module_height = (module_height <= oled_pcb_height + 2*wall_thickness + 2*frame)?oled_pcb_height + 2*wall_thickness+2*frame: module_height;
 
 use <common.scad>
 use <module_empty.scad>
 
-module cutOuter(radius)
+module cutOuter(radius, module_height)
 {
 	intersection(){
 		children();
-		cylinder(r=radius, h=_module_height);
+		cylinder(r=radius, h=module_height);
 	}
 }
 
-module cutInner(radius)
+module cutInner(radius, module_height)
 {
 	difference(){
 		children();
-		cylinder(r=radius, h=_module_height);
+		cylinder(r=radius, h=module_height);
 	}
 }
 
-module oled(base_radius, module_height, wall_thickness) {
+module oled(base_radius, module_height, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position) {
+	// lock minimum module height
+	_module_height = (module_height <= oled_pcb_height + 2*wall_thickness + 2*frame)?oled_pcb_height + 2*wall_thickness+2*frame: module_height;
+
 	union() {
 		difference(){
 			union(){
 				//base
 	    		empty(base_radius, _module_height, wall_thickness);
 	    		//frame
-	    		cutInner(base_radius - 2.5*wall_thickness){
-		    		cutOuter(base_radius - wall_thickness){
+	    		cutInner(base_radius - 2.5*wall_thickness, _module_height){
+		    		cutOuter(base_radius - wall_thickness, _module_height){
 			    		translate([5, -(oled_pcb_width/2 + wall_thickness/2),  frame])
 			    			cube([base_radius, oled_pcb_width + wall_thickness, oled_pcb_height + 2*wall_thickness]);
 			    	};
@@ -95,4 +96,4 @@ module oled(base_radius, module_height, wall_thickness) {
 	}
 }
 
-oled(base_radius, _module_height, wall_thickness);
+oled(base_radius, module_height, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
