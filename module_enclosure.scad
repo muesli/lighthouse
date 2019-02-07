@@ -38,11 +38,41 @@ base_radius = base_diameter / 2;
 use <common.scad>
 use <module_empty.scad>
 
-union() {
-    difference() {
-        empty(base_radius, module_height, wall_thickness);
-        venting_holes(90, base_radius, module_height, enclosure_vents_x, enclosure_vents_y, enclosure_vents_twosided);
-    }
+// adds a sensor enclosure to the module
+// parameters are length/width of enclosure
+module enclosure(angle, length, width, base_radius, base_height, wall_thickness, port_radius) {
+	difference() {
+		difference() {
+			translate([base_radius-length-wall_thickness,-width/2,0])
+				difference() {
+					cube([length, width, base_height], false);
+					translate([wall_thickness,wall_thickness,wall_thickness])
+						cube([length, width-wall_thickness*2, base_height-wall_thickness+1], false);
+				}
 
-    enclosure(90, enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
+			// wiring hole
+			translate([base_radius-length-wall_thickness-1, 0, base_height/2+wall_thickness/2])
+				rotate([0,90,0])
+					cylinder(wall_thickness+2, r = port_radius);
+		}
+
+		// make sure we don't exceed the outer shell
+		difference() {
+			cylinder(h = base_height * 4, d = base_radius * 2.5, center = true);
+			cylinder(h = base_height * 4 + 2, d = base_radius * 2, center = true);
+		}
+	}
 }
+
+module sensor_enclosure(enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius){
+	union() {
+	    difference() {
+	        empty(base_radius, module_height, wall_thickness);
+	        venting_holes(90, base_radius, module_height, enclosure_vents_x, enclosure_vents_y, enclosure_vents_twosided);
+	    }
+
+	    enclosure(90, enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
+	}
+}
+
+sensor_enclosure(enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
