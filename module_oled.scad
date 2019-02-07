@@ -5,8 +5,6 @@
 base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 // thickness of outer wall
 wall_thickness = 3; //[2:1:5]
-// height of the module
-module_height = 20; //[10:5:100]
 
 /* [OLED Dimensions] */
 
@@ -49,18 +47,19 @@ module cutInner(radius, module_height)
 	}
 }
 
-module oled(base_radius, module_height, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position) {
+function oled_module_height() = oled_pcb_height + 2*wall_thickness + 2*frame;
+
+module oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position) {
 	// lock minimum module height
-	_module_height = (module_height <= oled_pcb_height + 2*wall_thickness + 2*frame)?oled_pcb_height + 2*wall_thickness+2*frame: module_height;
 
 	union() {
 		difference(){
 			union(){
 				//base
-	    		empty(base_radius, _module_height, wall_thickness);
+	    		empty(base_radius, oled_module_height(), wall_thickness);
 	    		//frame
-	    		cutInner(base_radius - 2.5*wall_thickness, _module_height){
-		    		cutOuter(base_radius - wall_thickness, _module_height){
+	    		cutInner(base_radius - 2.5*wall_thickness, oled_module_height()){
+		    		cutOuter(base_radius - wall_thickness, oled_module_height()){
 			    		translate([5, -(oled_pcb_width/2 + wall_thickness/2),  frame])
 			    			cube([base_radius, oled_pcb_width + wall_thickness, oled_pcb_height + 2*wall_thickness]);
 			    	};
@@ -96,4 +95,4 @@ module oled(base_radius, module_height, wall_thickness, oled_width, oled_height,
 	}
 }
 
-oled(base_radius, module_height, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
+oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
