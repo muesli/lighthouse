@@ -13,8 +13,6 @@ board_length = 48; //[45:Arduino_Nano, 48:NodeMCUv2, 51:NodeMCUv3, 51:Feather_HU
 base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 // thickness of outer wall
 wall_thickness = 3; //[2:1:5]
-// height of the base
-base_height = 30; //[20:5:100]
 
 /* [Access Port Dimensions] */
 
@@ -30,6 +28,7 @@ base_radius = base_diameter / 2;
 
 use <common.scad>
 
+function base_height() = 30; //fixed, but needs to be fine-tuned to pcb+pins+connectors+bending radius of cables
 standoff_height = 12;
 standoff_width = wall_thickness;
 ground_clearance = 5;
@@ -86,8 +85,8 @@ module port_access(length, height) {
 			// add new inner wall
 			intersection() { // cut everything not inside the original enclosure shape
 				// same as base
-				translate([0, 0, base_height/2])
-					cylinder(h = base_height, d = base_diameter, center = true);
+				translate([0, 0, base_height()/2])
+					cylinder(h = base_height(), d = base_diameter, center = true);
 				// recess
 				translate([board_length/2, -(2*base_radius+5)/2, 0]) {
 					cube([base_radius+5, 2*base_radius+5, ground_clearance + wall_thickness + 1 + height + 1]);
@@ -113,12 +112,12 @@ module port_access(length, height) {
 }
 
 // main housing of the uC
-module base(base_radius, base_height, wall_thickness, board_length, board_width, port_width, port_height) {
+module base(base_radius, wall_thickness, board_length, board_width, port_width, port_height) {
 	port_access(port_width, port_height) {
 		union() {
 			difference() {
-				shell(base_radius*2, base_height, wall_thickness, true);
-				venting_holes(0, base_radius, base_height, 10, 5, true);
+				shell(base_radius*2, base_height(), wall_thickness, true);
+				venting_holes(0, base_radius, base_height(), 10, 5, true);
 			};
 
 			// board dummy
@@ -126,10 +125,10 @@ module base(base_radius, base_height, wall_thickness, board_length, board_width,
 				cube([board_length, board_width, 2]);
 
 			standoffs(board_length, board_width, ground_clearance);
-			connectors_female(90, base_radius, base_height, wall_thickness);
-			connectors_female(270, base_radius, base_height, wall_thickness);
+			connectors_female(90, base_radius, base_height(), wall_thickness);
+			connectors_female(270, base_radius, base_height(), wall_thickness);
 		}
 	}
 }
 
-base(base_radius, base_height, wall_thickness, board_length, board_width, port_width, port_height);
+base(base_radius, wall_thickness, board_length, board_width, port_width, port_height);
