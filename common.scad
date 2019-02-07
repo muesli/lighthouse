@@ -67,32 +67,6 @@ module connectors_male(angle, base_radius, wall_thickness) {
 		}
 }
 
-// adds a sensor enclosure to the module
-// parameters are length/width of enclosure
-module enclosure(angle, length, width, base_radius, base_height, wall_thickness, port_radius) {
-	difference() {
-		difference() {
-			translate([base_radius-length-wall_thickness,-width/2,0])
-				difference() {
-					cube([length, width, base_height], false);
-					translate([wall_thickness,wall_thickness,wall_thickness])
-						cube([length, width-wall_thickness*2, base_height-wall_thickness+1], false);
-				}
-
-			// wiring hole
-			translate([base_radius-length-wall_thickness-1, 0, base_height/2+wall_thickness/2])
-				rotate([0,90,0])
-					cylinder(wall_thickness+2, r = port_radius);
-		}
-
-		// make sure we don't exceed the outer shell
-		difference() {
-			cylinder(h = base_height * 4, d = base_radius * 2.5, center = true);
-			cylinder(h = base_height * 4 + 2, d = base_radius * 2, center = true);
-		}
-	}
-}
-
 // cut array of venting holes
 module venting_holes(angle, base_radius, base_height, xnum, ynum, twosided) {
 	width = 1;
