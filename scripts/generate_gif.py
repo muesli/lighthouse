@@ -67,7 +67,7 @@ output_folder = os.path.join('build', 'animation')
 shutil.rmtree(output_folder, ignore_errors=True)
 os.makedirs(output_folder)
 
-num_frames = 16
+num_frames = 8
 cam_distance = 200
 if len(sys.argv) > 3:
     cam_distance = float(sys.argv[3])
