@@ -28,8 +28,8 @@ module dome(base_radius, empty_height, wall_thickness) {
     translate([0,0,empty_height])
         difference() {
             difference() {
-                sphere(base_radius, $fn=100);
-                sphere(base_radius-2, $fn=100);
+                sphere(base_radius);
+                sphere(base_radius-2);
             }
             translate([0,0,-base_radius])
                 cylinder(h = base_radius, d = base_radius * 2, center = false);
