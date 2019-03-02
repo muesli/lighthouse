@@ -32,7 +32,7 @@ port_zpos = 0; //[-25:1:30]
 /* [Empty Module] */
 
 // create an empty module
-create_empty = true;
+create_empty = false;
 
 // height of the empty module
 empty_height = 30; // [10:1:60]
