@@ -12,7 +12,7 @@ wall_thickness = 3; //[2:1:5]
 // thickness of dome
 cap_dome_thickness = 1.5; //[2:0.5:5]
 // height of the dome cap
-cap_dome_height = 15; //[10:3:100]
+cap_dome_height = 10; //[10:1:100]
 
 /* [Hidden] */
 
