@@ -91,7 +91,7 @@ dome_cap_start = create_dome_cap?enclosure_module_start+enclosure_height:enclosu
 union() {
 	base(base_radius, wall_thickness, board, port_width, port_height, port_ypos, port_zpos);
 	if (create_empty)
-		translate([0,0,empty_height])
+		translate([0,0,base_height()])
 			empty(base_radius, empty_height, wall_thickness);
 	if (create_oled)
 		translate([0,0,oled_module_start])
