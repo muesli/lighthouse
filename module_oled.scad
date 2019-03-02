@@ -52,6 +52,7 @@ function oled_module_height() = oled_pcb_height + 2*wall_thickness + 2*frame;
 module oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position) {
 	// lock minimum module height
 
+	rotate([0,0,180])
 	union() {
 		difference(){
 			union(){
@@ -90,7 +91,6 @@ module oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width
 		    translate([base_radius- 1*wall_thickness,+oled_width/2 + 2, oled_y_position + wall_thickness +frame -2])
 		    	rotate([0,0,-30])
 		    		cube([base_radius- 2*wall_thickness, oled_width+4, oled_height+4]);
-		
 		}
 	}
 }
