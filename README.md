@@ -51,6 +51,9 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
 #### Small Base for NodeMCU v2
 ![base animation](https://muesli.github.io/modular-case/base.gif)
 
+#### Dome Cap
+![dome cap animation](https://muesli.github.io/modular-case/cap_dome.gif)
+
 #### Sensor Enclosure Module
 ![enclosure module animation](https://muesli.github.io/modular-case/module_enclosure.gif)
 
