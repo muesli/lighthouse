@@ -65,6 +65,14 @@ enclosure_width = 25; //[10:5:100]
 // radius of port access
 enclosure_port_radius = 4; //[2:1:20]
 
+/* [Dome Cap Dimensions] */
+create_dome_cap = true;
+
+// thickness of dome
+cap_dome_thickness = 1.5; //[2:0.5:5]
+// height of the dome cap
+cap_dome_height = 15; //[10:3:100]
+
 /* [Hidden] */
 
 $fn = 256;
@@ -74,9 +82,11 @@ use <base.scad>
 use <module_empty.scad>
 use <module_oled.scad>
 use <module_enclosure.scad>
+use <cap_dome.scad>
 
 oled_module_start = create_empty?base_height()+empty_height:base_height();
 enclosure_module_start = create_oled?oled_module_start+oled_module_height():oled_module_start;
+dome_cap_start = create_dome_cap?enclosure_module_start+enclosure_height:enclosure_module_start;
 
 union() {
 	base(base_radius, wall_thickness, board, port_width, port_height, port_ypos, port_zpos);
@@ -89,5 +99,7 @@ union() {
     if (create_enclosure)
 		translate([0,0,enclosure_module_start])
     		sensor_enclosure(enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
-
+    if (create_dome_cap)
+		translate([0,0,dome_cap_start])
+			dome(base_radius, cap_dome_height, wall_thickness, cap_dome_thickness);
 }
