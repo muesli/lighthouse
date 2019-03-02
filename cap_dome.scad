@@ -1,4 +1,4 @@
-// Creates an empty module
+// Creates a dome cap.
 
 /* [Case Dimensions] */
 
