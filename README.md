@@ -64,33 +64,12 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
 ![empty module animation](https://muesli.github.io/modular-case/module_empty.gif)
 
 ## Further ideas
-- Translate the Fusion360 model to english language description
 - Add cable ducts to modules
 - The node MCU and other boards as well have mounting holes, use them for better support in the base
 - The PCB modules could be fit a little bit tighter into their respective casing making it easier e.g. to push a button from the outside
 - How to handle larger modules than radius of base?
-    - <fribbledom> I see three options here:
-        1. offer larger base sizes, that shrink in diameter towards the top, so we end up with the same module connectors
-        2. if there's also a need for larger modules, we could offer a large  & small version of each module fairly easily (hooray parameterized  design)
-        3. there could be conversion modules between the large and small sizes, which would  allow you to place several large modules at the bottom and then switch to the smaller ones for the upper modules
+- Conversion modules between the large and small diameters
 
-## Hardware specs
-- NodeMCU v2 (from original): 48mm (L) x 26mm (W) x 13mm (H)
-  - position of mounting holes? ground and height clearance needed?
-    - <fribbledom> I will try to gather as much information and links to "official" specs as I can find this afternoon
+## Precursor of this design
 
-## Next steps
-1. Create OpenSCAD parts of the model, roughly based on the existing design (see below)
-2. Create modules from parts
-3. Profit!
-
-## Existing design
-
-Current issues with this design: https://www.thingiverse.com/thing:2627220
-
-- Only one basis, for the NodeMCU v2
-- PIR Motion sensor module has broken hinges (too deep, compare with other modules)
-- OLED 0.96" is a tiny bit too small for the revision 2 displays
-- Temperature sensor module is a bit small for DHT11 and way too small for DHT22
-- A bunch of other modules are still missing
-- Designed in Fusion360, OpenSCAD (open source/FOSS) would be preferred
+This design is inspired by https://www.thingiverse.com/thing:2627220 and strives to remain compatible with it.
