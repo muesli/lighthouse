@@ -51,7 +51,7 @@ oled_pcb_height = 27; //[10:1:100]
 //position of the display (lower edge)
 oled_y_position = 6.5;
 
-/* [Sensor enclosure] */ 
+/* [Sensor enclosure] */
 create_enclosure = true;
 
 // thickness of outer wall

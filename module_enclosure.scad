@@ -30,6 +30,7 @@ enclosure_vents_x = 6; //[3:1:10]
 enclosure_vents_y = 5; //[3:1:10]
 // two-sided vents
 enclosure_vents_twosided = false;
+
 /* [Hidden] */
 
 $fn = 256;

@@ -142,7 +142,7 @@ module _base(base_radius, wall_thickness, board_length, board_width, port_width,
 }
 
 module base(base_radius, wall_thickness, board, port_width, port_height, port_ypos, port_zpos) {
-	// board dimensions database (unique variables needed due to languare restrictions)
+	// board dimensions database (unique variables needed due to language restrictions)
 	board_size1 = board==0?[board_width, board_length]:[1,1]; //custom
 	board_size2 = board==1?[ 45   , 18   ]:board_size1; // Arduino_Nano
 	board_size3 = board==2?[ 68.6 , 53.3 ]:board_size2; // Arduino_Uno
