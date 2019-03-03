@@ -79,6 +79,9 @@ cap_dome_height = 10; //[10:1:100]
 
 $fn = 128;
 base_radius = base_diameter / 2;
+base_color = "CornflowerBlue";
+module_color = "CornflowerBlue";
+cap_color = "Snow";
 
 use <base.scad>
 use <module_empty.scad>
@@ -86,22 +89,31 @@ use <module_oled.scad>
 use <module_enclosure.scad>
 use <cap_dome.scad>
 
-oled_module_start = create_empty?base_height()+empty_height:base_height();
-enclosure_module_start = create_oled?oled_module_start+oled_module_height():oled_module_start;
-dome_cap_start = create_dome_cap?enclosure_module_start+enclosure_height:enclosure_module_start;
+enclosure_module_start = create_empty?base_height()+empty_height:base_height();
+oled_module_start = create_enclosure?enclosure_module_start+enclosure_module_height:enclosure_module_start;
+dome_cap_start = create_oled?oled_module_start+oled_module_height():oled_module_start;
 
 union() {
-	base(base_radius, wall_thickness, board, port_width, port_height, port_ypos, port_zpos);
+	color(base_color, 1.0)
+		base(base_radius, wall_thickness, board, port_width, port_height, port_ypos, port_zpos);
+
 	if (create_empty)
 		translate([0,0,base_height()])
-			empty(base_radius, empty_height, wall_thickness);
-	if (create_oled)
-		translate([0,0,oled_module_start])
-			oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
+			color(module_color, 1.0)
+				empty(base_radius, empty_height, wall_thickness);
+
     if (create_enclosure)
 		translate([0,0,enclosure_module_start])
-    		sensor_enclosure(enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
+			color(module_color, 1.0)
+				sensor_enclosure(enclosure_length, enclosure_width, base_radius, enclosure_module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
+
+	if (create_oled)
+		translate([0,0,oled_module_start])
+			color(module_color, 1.0)
+				oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
+
     if (create_dome_cap)
 		translate([0,0,dome_cap_start])
-			dome(base_radius, cap_dome_height, wall_thickness, cap_dome_thickness);
+			color(cap_color, 1.0)
+				dome(base_radius, cap_dome_height, wall_thickness, cap_dome_thickness);
 }

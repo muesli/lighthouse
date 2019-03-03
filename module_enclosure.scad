@@ -65,7 +65,7 @@ module enclosure(angle, length, width, base_radius, base_height, wall_thickness,
 	}
 }
 
-module sensor_enclosure(enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius){
+module sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius) {
 	union() {
 	    difference() {
 	        empty(base_radius, module_height, wall_thickness);
@@ -76,4 +76,4 @@ module sensor_enclosure(enclosure_length, enclosure_width, base_radius, enclosur
 	}
 }
 
-sensor_enclosure(enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
+sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
