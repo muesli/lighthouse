@@ -36,7 +36,7 @@ def generate_gif(output_folder, output_name):
     command = [
         'convert',
         os.path.join(output_folder, 'frame*.png'),
-        '-set', 'delay', '1x4',
+        '-set', 'delay', '1x8',
         os.path.join(output_folder, output_name),
     ]
     logging.debug(command)
