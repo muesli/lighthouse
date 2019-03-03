@@ -53,6 +53,7 @@ def render_rotation(output_folder, input_name, cam_distance, cam_angle, cam_tran
             camera_rotation = [cam_angle, 0, angle],
             camera_distance = cam_distance,
             variables = variables,
+            colorscheme = 'BeforeDawn',
         )
     pool = Pool()
     for _ in pool.imap_unordered(render_frame, range(num_frames)):
