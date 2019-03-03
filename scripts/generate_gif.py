@@ -67,7 +67,7 @@ shutil.rmtree(output_folder, ignore_errors=True)
 os.makedirs(output_folder)
 
 num_frames = 64
-cam_distance = 200
+cam_distance = 250
 cam_angle = 45
 cam_translation = 10
 
