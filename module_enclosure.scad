@@ -33,7 +33,7 @@ enclosure_vents_twosided = false;
 
 /* [Hidden] */
 
-$fn = 256;
+$fn = 128;
 base_radius = base_diameter / 2;
 
 use <common.scad>

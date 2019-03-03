@@ -31,7 +31,7 @@ port_zpos = 0; //[-25:1:30]
 
 /* [Hidden] */
 
-$fn = 256;
+$fn = 128;
 
 base_radius = base_diameter / 2;
 

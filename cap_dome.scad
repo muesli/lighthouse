@@ -16,7 +16,7 @@ cap_dome_height = 10; //[10:1:100]
 
 /* [Hidden] */
 
-$fn = 256;
+$fn = 128;
 base_radius = base_diameter / 2;
 
 use <common.scad>

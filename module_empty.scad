@@ -11,7 +11,7 @@ module_height = 20; //[10:5:100]
 
 /* [Hidden] */
 
-$fn = 256;
+$fn = 128;
 base_radius = base_diameter / 2;
 
 use <common.scad>

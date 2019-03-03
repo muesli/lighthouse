@@ -22,7 +22,7 @@ oled_y_position = 6.5;
 
 
 /* [Hidden] */
-$fn = 256;
+$fn = 128;
 base_radius = base_diameter / 2;
 
 frame = 1; // plastic frame around pcb
