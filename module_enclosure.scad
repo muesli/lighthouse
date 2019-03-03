@@ -59,8 +59,8 @@ module enclosure(angle, length, width, base_radius, base_height, wall_thickness,
 
 		// make sure we don't exceed the outer shell
 		difference() {
-			cylinder(h = base_height * 4, d = base_radius * 2.5, center = true);
-			cylinder(h = base_height * 4 + 2, d = base_radius * 2, center = true);
+			cylinder(h = base_height, d = base_radius * 2.5, center = false);
+			cylinder(h = base_height, d = base_radius * 2, center = false);
 		}
 	}
 }
