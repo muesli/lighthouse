@@ -20,7 +20,7 @@ script:
 - mv build/stl/*.stl build/module_small_oled096.stl
 - python -u ./scripts/generate_stl.py cap_dome.scad
 - mv build/stl/*.stl build/cap_small_dome.stl
-- xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py assembly.scad assembly.gif 500
+- xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py assembly.scad assembly.gif 600
 - mv build/animation/assembly.gif build/
 - xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py base.scad base.gif 250
 - mv build/animation/base.gif build/

@@ -81,7 +81,7 @@ $fn = 128;
 base_radius = base_diameter / 2;
 base_color = "CornflowerBlue";
 module_color = "CornflowerBlue";
-cap_color = "Snow";
+cap_color = "CornflowerBlue";
 
 use <base.scad>
 use <module_empty.scad>
