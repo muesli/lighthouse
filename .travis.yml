@@ -16,8 +16,10 @@ install:
 - sudo pip install svg.path==2.2
 
 script:
-- python -u ./scripts/generate_stl.py base.scad
-- mv build/stl/*.stl build/base_small_nodemcuv2.stl
+- python -u ./scripts/generate_stl.py base.scad board 5
+- mv build/stl/*.stl build/base_small_nodemcu_v2.stl
+- python -u ./scripts/generate_stl.py base.scad board 6
+- mv build/stl/*.stl build/base_small_nodemcu_v3.stl
 - python -u ./scripts/generate_stl.py module_empty.scad
 - mv build/stl/*.stl build/module_small_empty.stl
 - python -u ./scripts/generate_stl.py module_enclosure.scad
