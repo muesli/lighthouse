@@ -51,8 +51,8 @@ def run(
         '-o', output_file,
     ]
 
-    if output_file.endswith(".png"):
-        command += ['--render']
+#    if output_file.endswith(".png"):
+#        command += ['--render']
 
     if output_size is not None:
         command += ['--imgsize=%d,%d' % tuple(output_size)]
@@ -65,6 +65,8 @@ def run(
         if camera_distance is None:
             camera_distance = 600
         command += ['--camera=%f,%f,%f,%f,%f,%f,%f' % tuple(camera_translation + camera_rotation + [camera_distance])]
+#    else:
+#        command += ['--autocenter', '--viewall']
     if colorscheme is not None:
         command += ['--colorscheme=%s' % colorscheme]
 

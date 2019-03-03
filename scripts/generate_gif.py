@@ -53,7 +53,6 @@ def render_rotation(output_folder, input_name, cam_distance, num_frames, start_f
             camera_rotation = [45, 0, angle],
             camera_distance = cam_distance,
             variables = variables,
-            colorscheme = 'Nature',
         )
     pool = Pool()
     for _ in pool.imap_unordered(render_frame, range(num_frames)):
@@ -67,7 +66,7 @@ output_folder = os.path.join('build', 'animation')
 shutil.rmtree(output_folder, ignore_errors=True)
 os.makedirs(output_folder)
 
-num_frames = 8
+num_frames = 64
 cam_distance = 200
 if len(sys.argv) > 3:
     cam_distance = float(sys.argv[3])
