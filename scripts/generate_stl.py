@@ -34,7 +34,7 @@ def generate_stl(input_name, output_folder, output_name, variables):
     openscad.run(
         input_name,
         os.path.join(output_folder, output_name),
-        # variables = variables,
+        variables = variables,
     )
 
 output_folder = os.path.join('build', 'stl')
@@ -42,6 +42,8 @@ output_folder = os.path.join('build', 'stl')
 shutil.rmtree(output_folder, ignore_errors=True)
 os.makedirs(output_folder)
 
-generate_stl(sys.argv[1], output_folder, "render.stl", {
-    'board': 5,
-})
+variables = {}
+for i in range(1, int(len(sys.argv)/2)):
+    variables.update({sys.argv[i*2] : sys.argv[i*2+1]})
+
+generate_stl(sys.argv[1], output_folder, "render.stl", variables)
