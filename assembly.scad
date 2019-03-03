@@ -54,14 +54,16 @@ oled_y_position = 6.5;
 /* [Sensor enclosure] */
 create_enclosure = true;
 
+// height of the enclosure module
+enclosure_module_height = 18; //[18:1:100]
 // thickness of outer wall
 enclosure_wall_thickness = 2; //[2:1:5]
 // height of the enclosure
-enclosure_height = 15; //[10:3:100]
+enclosure_height = 15; //[12:1:100]
 // length of the enclosure
-enclosure_length = 40; //[10:5:100]
+enclosure_length = 40; //[10:1:100]
 // width of the enclosure
-enclosure_width = 25; //[10:5:100]
+enclosure_width = 25; //[10:1:100]
 // radius of port access
 enclosure_port_radius = 4; //[2:1:20]
 

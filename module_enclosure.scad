@@ -7,18 +7,18 @@ base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 // thickness of outer wall
 wall_thickness = 3; //[2:1:5]
 // height of the module
-module_height = 20; //[10:5:100]
+module_height = 18; //[18:1:100]
 
 /* [Enclosure Dimensions] */
 
 // thickness of outer wall
 enclosure_wall_thickness = 2; //[2:1:5]
 // height of the enclosure
-enclosure_height = 15; //[10:3:100]
+enclosure_height = 15; //[12:1:100]
 // length of the enclosure
-enclosure_length = 40; //[10:5:100]
+enclosure_length = 40; //[10:1:100]
 // width of the enclosure
-enclosure_width = 25; //[10:5:100]
+enclosure_width = 25; //[10:1:100]
 // radius of port access
 enclosure_port_radius = 4; //[2:1:20]
 
