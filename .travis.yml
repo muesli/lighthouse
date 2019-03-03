@@ -1,12 +1,17 @@
-dist: trusty
+dist: xenial
+addons:
+  apt:
+    packages:
+    - imagemagick
+    - xvfb
 sudo: true
 language: generic
 
 install:
-- sudo add-apt-repository --yes ppa:openscad/releases
+- wget -qO - https://files.openscad.org/OBS-Repository-Key.pub | sudo apt-key add -
+- echo 'deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_16.04/ ./' | sudo tee --append /etc/apt/sources.list.d/openscad.list
 - sudo apt-get update -qq
-- sudo DEBIAN_FRONTEND=noninteractive apt-get install -y openscad imagemagick xvfb
-- sudo apt-get purge -y fglrx
+- sudo DEBIAN_FRONTEND=noninteractive apt-get install -y openscad-nightly
 - sudo pip install svg.path==2.2
 
 script:
