@@ -94,26 +94,26 @@ oled_module_start = create_enclosure?enclosure_module_start+enclosure_module_hei
 dome_cap_start = create_oled?oled_module_start+oled_module_height():oled_module_start;
 
 union() {
-	color(base_color, 1.0)
+	color(base_color)
 		base(base_radius, wall_thickness, board, port_width, port_height, port_ypos, port_zpos);
 
 	if (create_empty)
 		translate([0,0,base_height()])
-			color(module_color, 1.0)
+			color(module_color)
 				empty(base_radius, empty_height, wall_thickness);
 
     if (create_enclosure)
 		translate([0,0,enclosure_module_start])
-			color(module_color, 1.0)
+			color(module_color)
 				sensor_enclosure(enclosure_length, enclosure_width, base_radius, enclosure_module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
 
 	if (create_oled)
 		translate([0,0,oled_module_start])
-			color(module_color, 1.0)
+			color(module_color)
 				oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
 
     if (create_dome_cap)
 		translate([0,0,dome_cap_start])
-			color(cap_color, 1.0)
+			color(cap_color)
 				dome(base_radius, cap_dome_height, wall_thickness, cap_dome_thickness);
 }
