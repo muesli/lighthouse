@@ -79,7 +79,7 @@ if len(sys.argv) > 5:
     cam_translation = float(sys.argv[5])
 
 render_rotation(output_folder, sys.argv[1], cam_distance, cam_angle, cam_translation, num_frames, 0, {
-    'render_enclosure': 1,
+    'board': 5,
 })
 
 generate_gif(output_folder, sys.argv[2])

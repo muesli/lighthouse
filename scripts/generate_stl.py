@@ -43,5 +43,5 @@ shutil.rmtree(output_folder, ignore_errors=True)
 os.makedirs(output_folder)
 
 generate_stl(sys.argv[1], output_folder, "render.stl", {
-    'render_enclosure': 1,
+    'board': 5,
 })
