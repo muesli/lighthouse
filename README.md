@@ -27,6 +27,7 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
         - OLED 1.3", e.g. https://www.amazon.de/dp/B078J78R45
     - Temperature sensors
         - DHT11/22
+        - BMP180, BMP280, BME280
     - Battery
         - 9V block
     - Spacer
