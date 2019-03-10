@@ -10,9 +10,13 @@ wall_thickness = 3; //[2:1:5]
 /* [Dome Cap Dimensions] */
 
 // thickness of dome
-cap_dome_thickness = 1.5; //[2:0.5:5]
+cap_dome_thickness = 1; //[0.5:0.5:5]
 // height of the dome cap
 cap_dome_height = 10; //[10:1:100]
+// width of the rest plate
+cap_dome_rest_width = 20; //[10:1:80]
+// height of the rest plate
+cap_dome_rest_height = 2.5; //[1:0.5:10]
 
 /* [Hidden] */
 
@@ -21,13 +25,16 @@ base_radius = base_diameter / 2;
 
 use <common.scad>
 
-module dome(base_radius, cap_height, wall_thickness, dome_thickness) {
+module dome(base_radius, wall_thickness, cap_height, dome_thickness, rest_width, rest_height) {
 	// outer shell
 	shell(base_radius*2, cap_height, wall_thickness, false);
 
 	// male connectors (to module below)
 	connectors_male(90, base_radius, wall_thickness);
 	connectors_male(270, base_radius, wall_thickness);
+
+    translate([-base_radius+wall_thickness,-rest_width/2,0])
+        cube([2*(base_radius-wall_thickness),rest_width,rest_height]);
 
     // sphere
     translate([0,0,cap_height])
@@ -41,4 +48,4 @@ module dome(base_radius, cap_height, wall_thickness, dome_thickness) {
         }
 }
 
-dome(base_radius, cap_dome_height, wall_thickness, cap_dome_thickness);
+dome(base_radius, wall_thickness, cap_dome_height, cap_dome_thickness, cap_dome_rest_width, cap_dome_rest_height);

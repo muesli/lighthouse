@@ -51,7 +51,7 @@ oled_pcb_height = 27; //[10:1:100]
 //position of the display (lower edge)
 oled_y_position = 6.5;
 
-/* [Sensor enclosure] */
+/* [Sensor Enclosure] */
 create_enclosure = true;
 
 // height of the enclosure module
@@ -67,13 +67,17 @@ enclosure_width = 25; //[10:1:100]
 // radius of port access
 enclosure_port_radius = 4; //[2:1:20]
 
-/* [Dome Cap Dimensions] */
+/* [Dome Cap] */
 create_dome_cap = true;
 
 // thickness of dome
 cap_dome_thickness = 1.5; //[2:0.5:5]
 // height of the dome cap
 cap_dome_height = 10; //[10:1:100]
+// width of the rest plate
+cap_dome_rest_width = 20; //[10:1:80]
+// height of the rest plate
+cap_dome_rest_height = 2.5; //[1:0.5:10]
 
 /* [Hidden] */
 
@@ -115,5 +119,5 @@ union() {
     if (create_dome_cap)
 		translate([0,0,dome_cap_start])
 			color(cap_color)
-				dome(base_radius, cap_dome_height, wall_thickness, cap_dome_thickness);
+				dome(base_radius, wall_thickness, cap_dome_height, cap_dome_thickness, cap_dome_rest_width, cap_dome_rest_height);
 }
