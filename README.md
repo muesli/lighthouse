@@ -47,6 +47,33 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
     - Flat cap
     - ...
 
+## STL Downloads
+
+#### Bases
+[NodeMCU v2 Base](https://muesli.github.io/modular-case/base_small_nodemcu_v2.stl)
+[NodeMCU v3 Base](https://muesli.github.io/modular-case/base_small_nodemcu_v3.stl)
+
+#### Caps
+
+[Dome Cap](https://muesli.github.io/modular-case/cap_small_dome.stl)
+
+#### OLED Module
+
+[0.96" OLED](https://muesli.github.io/modular-case/module_small_oled096.stl)
+[1.3" OLED](https://muesli.github.io/modular-case/module_small_oled130.stl)
+
+#### PIR Motion Sensor Module
+
+[PIR Motion Sensor](https://muesli.github.io/modular-case/module_small_pir.stl)
+
+#### Sensor Enclosure Module
+
+[Sensor Enclosure](https://muesli.github.io/modular-case/module_small_enclosure.stl)
+
+#### Empty Spacer Module
+
+[Empty Spacer](https://muesli.github.io/modular-case/module_small_empty.stl)
+
 ## Rendered animations
 
 #### Small Base for NodeMCU v2
