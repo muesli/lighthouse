@@ -95,7 +95,8 @@ use <cap_dome.scad>
 
 enclosure_module_start = create_empty?base_height()+empty_height:base_height();
 oled_module_start = create_enclosure?enclosure_module_start+enclosure_module_height:enclosure_module_start;
-dome_cap_start = create_oled?oled_module_start+oled_module_height():oled_module_start;
+oled_module_height = oled_pcb_height + 2*wall_thickness + 1;
+dome_cap_start = create_oled?oled_module_start+oled_module_height:oled_module_start;
 
 union() {
 	color(base_color)
