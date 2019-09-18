@@ -40,16 +40,19 @@ empty_height = 30; // [10:1:60]
 /* [OLED Module] */
 create_oled = true;
 
+// type of display
+display = 0; //[0: Custom, 1:OLED 0.96, 2:OLED 1.3]
+
 // width of the display
-oled_width = 26; //[10:1:100]
+oled_width = 35; //[10:1:100]
 // height of the display
-oled_height = 13; //[10:1:100]
+oled_height = 18; //[10:1:100]
 // width of the pcb
-oled_pcb_width = 27; //[10:1:100]
+oled_pcb_width = 36; //[10:1:100]
 // height of the pcb
-oled_pcb_height = 27; //[10:1:100]
-//position of the display (lower edge)
-oled_y_position = 6.5;
+oled_pcb_height = 34; //[10:1:100]
+// position of the display (lower edge)
+oled_y_position = 9.0;
 
 /* [Sensor Enclosure] */
 create_enclosure = true;
