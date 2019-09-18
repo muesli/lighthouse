@@ -25,6 +25,8 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
     - Displays
         - OLED 0.96", e.g. https://www.amazon.de/dp/B01L9GC470
         - OLED 1.3", e.g. https://www.amazon.de/dp/B078J78R45
+    - Motion sensors
+        - HC-SR501, e.g. https://www.amazon.de/dp/B07CNBYRQ7
     - Temperature sensors
         - DHT11/22
         - BMP180, BMP280, BME280
@@ -34,8 +36,6 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
 - Planned:
     - Displays
         - TFT
-    - Motion sensors
-        - HC-SR501, e.g. https://www.amazon.de/dp/B07CNBYRQ7
     - Switch
     - LED
     - ...
@@ -55,11 +55,14 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
 #### Dome Cap
 ![dome cap animation](https://muesli.github.io/modular-case/cap_dome.gif)
 
-#### Sensor Enclosure Module
-![enclosure module animation](https://muesli.github.io/modular-case/module_enclosure.gif)
-
 #### OLED Module
 ![OLED module animation](https://muesli.github.io/modular-case/module_oled.gif)
+
+#### PIR Motion Sensor Module
+![PIR motion sensor module animation](https://muesli.github.io/modular-case/module_pir.gif)
+
+#### Sensor Enclosure Module
+![enclosure module animation](https://muesli.github.io/modular-case/module_enclosure.gif)
 
 #### Empty Spacer Module
 ![empty module animation](https://muesli.github.io/modular-case/module_empty.gif)
