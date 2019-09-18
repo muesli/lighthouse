@@ -44,7 +44,7 @@ use <module_empty.scad>
 module enclosure(angle, length, width, base_radius, base_height, wall_thickness, port_radius) {
 	difference() {
 		difference() {
-			translate([base_radius-length-wall_thickness,-width/2,0])
+			translate([base_radius-length-wall_thickness*1.5,-width/2,0])
 				difference() {
 					cube([length, width, base_height], false);
 					translate([wall_thickness,wall_thickness,wall_thickness])
@@ -52,7 +52,7 @@ module enclosure(angle, length, width, base_radius, base_height, wall_thickness,
 				}
 
 			// wiring hole
-			translate([base_radius-length-wall_thickness-1, 0, base_height/2+wall_thickness/2])
+			translate([base_radius-length-wall_thickness-1.1, 0, base_height/2+wall_thickness/2])
 				rotate([0,90,0])
 					cylinder(wall_thickness+2, r = port_radius);
 		}
@@ -67,12 +67,12 @@ module enclosure(angle, length, width, base_radius, base_height, wall_thickness,
 
 module sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius) {
 	union() {
-	    difference() {
-	        empty(base_radius, module_height, wall_thickness);
-	        venting_holes(90, base_radius, module_height, enclosure_vents_x, enclosure_vents_y, enclosure_vents_twosided);
-	    }
+		difference() {
+			empty(base_radius, module_height, wall_thickness);
+			venting_holes(90, base_radius, module_height, enclosure_vents_x, enclosure_vents_y, enclosure_vents_twosided);
+		}
 
-	    enclosure(90, enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
+		enclosure(90, enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
 	}
 }
 
