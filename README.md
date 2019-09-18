@@ -17,7 +17,7 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
     - Wemos D1 Mini
     - Various Arduino boards
 - Planned:
-    - (with optional large base): Raspberry Pi
+    - Raspberry Pi
     - ...
 
 ## Modules
@@ -52,9 +52,6 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
 #### Small Base for NodeMCU v2
 ![base animation](https://muesli.github.io/modular-case/base.gif)
 
-#### Dome Cap
-![dome cap animation](https://muesli.github.io/modular-case/cap_dome.gif)
-
 #### OLED Module
 ![OLED module animation](https://muesli.github.io/modular-case/module_oled.gif)
 
@@ -67,11 +64,13 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
 #### Empty Spacer Module
 ![empty module animation](https://muesli.github.io/modular-case/module_empty.gif)
 
+#### Dome Cap
+![dome cap animation](https://muesli.github.io/modular-case/cap_dome.gif)
+
 ## Further ideas
-- Add cable ducts to modules
 - The node MCU and other boards as well have mounting holes, use them for better support in the base
+- Add cable ducts to modules
 - The PCB modules could be fit a little bit tighter into their respective casing making it easier e.g. to push a button from the outside
-- How to handle larger modules than radius of base?
 - Conversion modules between the large and small diameters
 
 ## Precursor of this design
