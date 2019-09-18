@@ -24,8 +24,10 @@ script:
 - mv build/stl/*.stl build/module_small_empty.stl
 - python -u ./scripts/generate_stl.py module_enclosure.scad
 - mv build/stl/*.stl build/module_small_dht11.stl
-- python -u ./scripts/generate_stl.py module_oled.scad preview true
+- python -u ./scripts/generate_stl.py module_oled.scad display 1
 - mv build/stl/*.stl build/module_small_oled096.stl
+- python -u ./scripts/generate_stl.py module_oled.scad display 2
+- mv build/stl/*.stl build/module_small_oled130.stl
 - python -u ./scripts/generate_stl.py module_pir.scad preview true
 - mv build/stl/*.stl build/module_small_pir.stl
 - python -u ./scripts/generate_stl.py cap_dome.scad
