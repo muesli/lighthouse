@@ -33,6 +33,7 @@ module dome(base_radius, wall_thickness, cap_height, dome_thickness, rest_width,
 	connectors_male(90, base_radius, wall_thickness);
 	connectors_male(270, base_radius, wall_thickness);
 
+    // rest plate
     translate([-base_radius+wall_thickness,-rest_width/2,0])
         cube([2*(base_radius-wall_thickness),rest_width,rest_height]);
 

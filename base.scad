@@ -1,4 +1,4 @@
-// Creates the enclosure base with space for a PCB and access to its ports.
+// Creates the enclosure base with space for a PCB and access to its ports
 
 /* [Case Dimensions] */
 
@@ -10,7 +10,7 @@ wall_thickness = 3; //[2:1:5]
 
 /* [PCB Dimensions] */
 
-//type of uC
+// type of uC
 board = 0; //[0: Custom, 1:Arduino_Nano, 2:Arduino_Mega, 3:Arduino_Uno, 4:Feather_HUZZAH, 5:NodeMCUv2, 6:NodeMCUv3, 7:Raspberry_Pi_ZeroW]
 
 // width of a PCB (only for Custom)
@@ -32,7 +32,6 @@ port_zpos = 0; //[-25:1:30]
 /* [Hidden] */
 
 $fn = 128;
-
 base_radius = base_diameter / 2;
 
 use <common.scad>
@@ -154,7 +153,7 @@ module base(base_radius, wall_thickness, board, port_width, port_height, port_yp
 
 	board_size = board_size8; // use last variable from table above here
 
-	//port dimensions [width, height, ypos, zpos]
+	// port dimensions [width, height, ypos, zpos]
 	port1 = board==0?[port_width, port_height, port_ypos, port_zpos]:[10,16,5,0]; //custom
 	port2 = board==1?[ 1,1,1,1 ]:port1; // Arduino_Nano
 	port3 = board==2?[ 1,1,1,1 ]:port2; // Arduino_Uno
