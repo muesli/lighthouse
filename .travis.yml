@@ -16,22 +16,14 @@ install:
 - sudo pip install svg.path==2.2
 
 script:
-- python -u ./scripts/generate_stl.py base.scad board 5
-- mv build/stl/*.stl build/base_small_nodemcu_v2.stl
-- python -u ./scripts/generate_stl.py base.scad board 6
-- mv build/stl/*.stl build/base_small_nodemcu_v3.stl
-- python -u ./scripts/generate_stl.py module_empty.scad
-- mv build/stl/*.stl build/module_small_empty.stl
-- python -u ./scripts/generate_stl.py module_enclosure.scad
-- mv build/stl/*.stl build/module_small_enclosure.stl
-- python -u ./scripts/generate_stl.py module_oled.scad display 1
-- mv build/stl/*.stl build/module_small_oled096.stl
-- python -u ./scripts/generate_stl.py module_oled.scad display 2
-- mv build/stl/*.stl build/module_small_oled130.stl
-- python -u ./scripts/generate_stl.py module_pir.scad
-- mv build/stl/*.stl build/module_small_pir.stl
-- python -u ./scripts/generate_stl.py cap_dome.scad
-- mv build/stl/*.stl build/cap_small_dome.stl
+- openscad -o build/base_small_nodemcu_v2.stl -D board=5 base.scad
+- openscad -o build/base_small_nodemcu_v3.stl -D board=6 base.scad
+- openscad -o build/module_small_empty.stl module_empty.scad
+- openscad -o build/module_small_enclosure.stl module_enclosure.scad
+- openscad -o build/module_small_oled096.stl -D display=1 module_oled.scad
+- openscad -o build/module_small_oled130.stl -D display=2 module_oled.scad
+- openscad -o build/module_small_pir.stl module_pir.scad
+- openscad -o build/cap_small_dome.stl cap_dome.scad
 - xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py assembly.scad assembly.gif 400 75 55
 - mv build/animation/assembly.gif build/
 - xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py base.scad base.gif
