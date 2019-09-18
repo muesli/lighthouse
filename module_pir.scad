@@ -26,7 +26,7 @@ pir_sensor_thread_pitch = 0.4;
 
 /* [Hidden] */
 $fn = 128;
-preview = true;
+preview = false;
 base_radius = base_diameter / 2;
 
 use <common.scad>
