@@ -16,6 +16,7 @@ install:
 - sudo pip install svg.path==2.2
 
 script:
+- mkdir build
 - openscad -o build/base_small_nodemcu_v2.stl -D board=5 base.scad
 - openscad -o build/base_small_nodemcu_v3.stl -D board=6 base.scad
 - openscad -o build/module_small_empty.stl module_empty.scad
