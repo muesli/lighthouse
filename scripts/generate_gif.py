@@ -81,6 +81,7 @@ if len(sys.argv) > 5:
 
 render_rotation(output_folder, sys.argv[1], cam_distance, cam_angle, cam_translation, num_frames, 0, {
     'board': 5,
+    'preview': true,
 })
 
 generate_gif(output_folder, sys.argv[2])
