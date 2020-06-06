@@ -13,7 +13,7 @@ pir_sensor_width = 24.0; //[10:0.1:100]
 // height of the PIR sensor
 pir_sensor_height = 24.0; //[10:0.1:100]
 // width of the pcb
-pir_sensor_pcb_width = 25.0; //[10:0.1:100]
+pir_sensor_pcb_width = 26.0; //[10:0.1:100]
 // height of the pcb
 pir_sensor_pcb_height = 32.0; //[10:0.1:100]
 // position of the sensor (lower edge)
