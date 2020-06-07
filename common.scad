@@ -87,3 +87,24 @@ module venting_holes(angle, base_radius, base_height, xnum, ynum, twosided) {
 			}
 		}
 }
+
+// Add rim to top of module. The connector_cutouts should be an array of the angles
+// for each connector (what was passed in to connectors_male)
+module rim(base_radius, height, wall_thickness, rim_height = 1.2, rim_width = 1)
+{
+    translate([0,0,height - rim_height])
+        difference()
+        {
+            cylinder(r = base_radius - wall_thickness + 0.01,
+                     h = rim_height * 2);
+
+            translate([0, 0, -0.01])
+                cylinder(r = base_radius - wall_thickness - rim_width,
+                         h = rim_height * 2+0.02);
+
+            translate([0, 0, -0.01])
+                cylinder(r2 = base_radius - wall_thickness - rim_width,
+                         r1 = base_radius - wall_thickness + 0.01,
+                         h = rim_height + 0.01);
+        }
+}

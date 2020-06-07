@@ -8,6 +8,10 @@ base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 wall_thickness = 2; //[2:0.5:5]
 // height of the module
 module_height = 16; //[16:1:100]
+// enable rim
+enable_rim = true;
+// rim height
+rim_height = 1.2; // [.5: .1: 2]
 
 /* [Enclosure Dimensions] */
 
@@ -66,13 +70,21 @@ module enclosure(angle, length, width, base_radius, base_height, wall_thickness,
 }
 
 module sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius) {
-	union() {
-		difference() {
-			empty(base_radius, module_height, wall_thickness);
-			venting_holes(90, base_radius, module_height, enclosure_vents_x, enclosure_vents_y, enclosure_vents_twosided);
+	difference() {
+		union() {
+			difference() {
+				empty(base_radius, module_height, wall_thickness);
+				venting_holes(90, base_radius, module_height, enclosure_vents_x, enclosure_vents_y, enclosure_vents_twosided);
+			}
+
+			enclosure(90, enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
 		}
 
-		enclosure(90, enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
+        // spacer for rim of module below
+        if (enable_rim) {
+            // make spacer 25% taller and 20% wider than the rim itself
+		    rim(base_radius, 0, wall_thickness - 0.2, rim_height * 1.25, 1.2);
+        }
 	}
 }
 

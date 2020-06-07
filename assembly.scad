@@ -7,6 +7,10 @@
 base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 // thickness of outer wall
 wall_thickness = 2; //[2:0.5:5]
+// enable rim
+enable_rim = true;
+// rim height
+rim_height = 1.2; // [.5: .1: 2]
 
 /* [Base Module] */
 
@@ -118,7 +122,7 @@ union() {
 	if (create_oled)
 		translate([0,0,oled_module_start])
 			color(module_color)
-				oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
+				oled(base_radius, wall_thickness, enable_rim, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
 
     if (create_dome_cap)
 		translate([0,0,dome_cap_start])

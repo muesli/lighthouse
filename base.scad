@@ -6,6 +6,10 @@
 base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 // thickness of outer wall
 wall_thickness = 2; //[2:0.5:5]
+// enable rim
+enable_rim = true;
+// rim height
+rim_height = 1.2; // [.5: .1: 2]
 
 /* [PCB Dimensions] */
 
@@ -135,6 +139,10 @@ module _base(base_radius, wall_thickness, board_length, board_width, port_width,
 			standoffs(board_length, board_width, ground_clearance);
 			connectors_female(90, base_radius, base_height(), wall_thickness);
 			connectors_female(270, base_radius, base_height(), wall_thickness);
+
+			if (enable_rim) {
+				rim(base_radius, base_height(), wall_thickness, rim_height);
+			}
 		}
 	}
 }

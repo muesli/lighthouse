@@ -5,6 +5,10 @@
 base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 // thickness of outer wall
 wall_thickness = 2; //[2:0.5:5]
+// enable rim
+enable_rim = true;
+// rim height
+rim_height = 1.2; // [.5: .1: 2]
 
 /* [PIR Sensor Dimensions] */
 
@@ -66,6 +70,12 @@ module pir_sensor(base_radius, wall_thickness, pir_sensor_width, pir_sensor_heig
 							cube([base_radius, pir_sensor_pcb_width + wall_thickness, pir_sensor_pcb_height + wall_thickness * 2 + 0.1]);
 					};
 				};
+			}
+
+			// spacer for rim of module below
+			if (enable_rim) {
+				// make spacer 25% taller and 20% wider than the rim itself
+				rim(base_radius, 0, wall_thickness - 0.2, rim_height * 1.25, 1.2);
 			}
 
 			// sensor cutout

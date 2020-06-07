@@ -6,6 +6,10 @@
 base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 // thickness of outer wall
 wall_thickness = 2; //[2:0.5:5]
+// enable rim
+enable_rim = true;
+// rim height
+rim_height = 1.2; // [.5: .1: 2]
 
 /* [Dome Cap Dimensions] */
 
@@ -85,7 +89,13 @@ module dome(base_radius, wall_thickness, cap_height, dome_thickness, rest_width,
                         cylinder(h = base_radius, d = base_radius * 2, center = false);
                 }
         }
+
+        // spacer for rim of module below
+        if (enable_rim) {
+            // make spacer 25% taller and 20% wider than the rim itself
+		    rim(base_radius, 0, wall_thickness - 0.2, rim_height * 1.25, 1.2);
         }
+    }
 }
 
 dome(base_radius, wall_thickness, cap_dome_height, cap_dome_thickness, led_plate_width, led_plate_height);

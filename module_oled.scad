@@ -5,6 +5,10 @@
 base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 // thickness of outer wall
 wall_thickness = 2; //[2:0.5:5]
+// enable rim
+enable_rim = true;
+// rim height
+rim_height = 1.2; // [.5: .1: 2]
 
 /* [OLED Dimensions] */
 
@@ -52,7 +56,7 @@ module cutInner(radius, module_height)
 	}
 }
 
-module _oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position) {
+module _oled(base_radius, wall_thickness, enable_rim, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position) {
 	oled_module_height = oled_pcb_height + 2*wall_thickness + 1;
 
 	rotate([0,0,180])
@@ -60,7 +64,7 @@ module _oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_widt
 		difference() {
 			union() {
 				// base
-				empty(base_radius, oled_module_height, wall_thickness);
+				empty(base_radius, oled_module_height, wall_thickness, enable_rim);
 
 				// frame
 				cutInner(base_radius - wall_thickness - 6, oled_module_height) {
@@ -69,6 +73,12 @@ module _oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_widt
 							cube([base_radius, oled_pcb_width + wall_thickness, oled_pcb_height-wall_thickness/2]);
 					};
 				};
+			}
+
+			// spacer for rim of module below
+			if (enable_rim) {
+				// make spacer 25% taller and 20% wider than the rim itself
+				rim(base_radius, 0, wall_thickness - 0.2, rim_height * 1.25, 1.2);
 			}
 
 			// display cutout
@@ -137,7 +147,7 @@ module _oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_widt
 	}
 }
 
-module oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position) {
+module oled(base_radius, wall_thickness, enable_rim, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position) {
 	// display dimensions database (unique variables needed due to language restrictions)
 	display_size1 = display==0?[oled_width, oled_height]:[1,1]; // custom
 	display_size2 = display==1?[28, 15]:display_size1; // OLED 0.96"
@@ -159,7 +169,7 @@ module oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width
 
 	y_offset = y_offset3; // use last variable from table above here
 
-	_oled(base_radius, wall_thickness, display_size[0], display_size[1], pcb_size[0], pcb_size[1], y_offset);
+	_oled(base_radius, wall_thickness, enable_rim, display_size[0], display_size[1], pcb_size[0], pcb_size[1], y_offset);
 }
 
-oled(base_radius, wall_thickness, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
+oled(base_radius, wall_thickness, enable_rim, oled_width, oled_height, oled_pcb_width, oled_pcb_height, oled_y_position);
