@@ -53,7 +53,7 @@ module pir_sensor(base_radius, wall_thickness, pir_sensor_width, pir_sensor_heig
 	pir_sensor_module_height = pir_sensor_pcb_height + 2*wall_thickness;
 
 	rotate([0,0,180])
-	union() {
+	difference() {
 		difference() {
 			union() {
 				// base
@@ -63,7 +63,7 @@ module pir_sensor(base_radius, wall_thickness, pir_sensor_width, pir_sensor_heig
 				cutInner(base_radius - 2.5*wall_thickness, pir_sensor_module_height) {
 					cutOuter(base_radius - wall_thickness+0.1, pir_sensor_module_height) {
 						translate([base_radius-wall_thickness*2-1, -(pir_sensor_pcb_width/2 + wall_thickness/2), 0])
-							cube([base_radius, pir_sensor_pcb_width + wall_thickness, pir_sensor_pcb_height + wall_thickness + 0.1]);
+							cube([base_radius, pir_sensor_pcb_width + wall_thickness, pir_sensor_pcb_height + wall_thickness * 2 + 0.1]);
 					};
 				};
 			}
@@ -95,21 +95,13 @@ module pir_sensor(base_radius, wall_thickness, pir_sensor_width, pir_sensor_heig
 			*/
 		}
 
-        // screw threads
-        difference() {
-        	translate([base_radius-2*wall_thickness-1, -2, pir_sensor_pcb_height-1])
-            	cube([2,4,4]);
-            render() translate([base_radius-2*wall_thickness-2.6, 0, pir_sensor_pcb_height+1])
-            	rotate([0,90,0])
-                	metric_thread(diameter=pir_sensor_thread_diameter, pitch=pir_sensor_thread_pitch, length=3, internal=true, test=preview);
-        }
-        difference() {
-            translate([base_radius-2*wall_thickness-1, -2, wall_thickness])
-                cube([2,4,4]);
-            render() translate([base_radius-2*wall_thickness-2.6, 0, wall_thickness+2])
-                rotate([0,90,0])
-                    metric_thread(diameter=pir_sensor_thread_diameter, pitch=pir_sensor_thread_pitch, length=3, internal=true, test=preview);
-        }
+		// screw threads
+		render() translate([base_radius-2*wall_thickness-0.6, 0, pir_sensor_pcb_height-pir_sensor_thread_diameter/2])
+			rotate([0,90,0])
+				metric_thread(diameter=pir_sensor_thread_diameter, pitch=pir_sensor_thread_pitch, length=3, internal=true, test=preview);
+		render() translate([base_radius-2*wall_thickness-0.6, 0, wall_thickness + pir_sensor_thread_diameter])
+			rotate([0,90,0])
+				metric_thread(diameter=pir_sensor_thread_diameter, pitch=pir_sensor_thread_pitch, length=3, internal=true, test=preview);
 	}
 }
 
