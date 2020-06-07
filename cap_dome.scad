@@ -5,7 +5,7 @@
 // diameter of the base
 base_diameter = 62.8; //[62.8:Small, 80:Medium, 100:Large, 130:XLarge]
 // thickness of outer wall
-wall_thickness = 3; //[2:1:5]
+wall_thickness = 2; //[2:0.5:5]
 
 /* [Dome Cap Dimensions] */
 
