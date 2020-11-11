@@ -1,0 +1,37 @@
+name: generate-base
+
+on:
+  push:
+
+jobs:
+  base:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        board: [5]
+        base-diameter: [62.8, 70, 80]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+
+      - name: Install OpenSCAD
+        run: |
+          wget -qO - https://files.openscad.org/OBS-Repository-Key.pub | sudo apt-key add -
+          echo 'deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_18.04/ ./' | sudo tee --append /etc/apt/sources.list.d/openscad.list
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y openscad-nightly
+          sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
+          sudo pip install svg.path==2.2
+
+      - name: Create build dir
+        run: mkdir build
+
+      - name: Generate STLs
+        run: |
+          openscad -o build/base_${{ matrix.base-diameter }}_nodemcu_v2.stl -D board=${{ matrix.board }} -D base_diameter=${{ matrix.base-diameter }} base.scad
