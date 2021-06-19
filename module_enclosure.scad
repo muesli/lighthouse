@@ -69,11 +69,11 @@ module enclosure(angle, length, width, base_radius, base_height, wall_thickness,
 	}
 }
 
-module sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius) {
+module sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius, enable_rim) {
 	difference() {
 		union() {
 			difference() {
-				empty(base_radius, module_height, wall_thickness);
+				empty(base_radius, module_height, wall_thickness, enable_rim);
 				venting_holes(90, base_radius, module_height, enclosure_vents_x, enclosure_vents_y, enclosure_vents_twosided);
 			}
 
@@ -88,4 +88,4 @@ module sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_h
 	}
 }
 
-sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
+sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_height, enclosure_height, enclosure_wall_thickness, enclosure_port_radius, enable_rim);
