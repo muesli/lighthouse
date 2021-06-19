@@ -80,11 +80,11 @@ module sensor_enclosure(enclosure_length, enclosure_width, base_radius, module_h
 			enclosure(90, enclosure_length, enclosure_width, base_radius, enclosure_height, enclosure_wall_thickness, enclosure_port_radius);
 		}
 
-        // spacer for rim of module below
-        if (enable_rim) {
-            // make spacer 25% taller and 20% wider than the rim itself
-		    rim(base_radius, 0, wall_thickness - 0.2, rim_height * 1.25, 1.2);
-        }
+		// spacer for rim of module below
+		if (enable_rim) {
+			// make spacer 25% taller and 20% wider than the rim itself
+			rim(base_radius, 0, wall_thickness - 0.2, rim_height * 1.25, 1.2);
+		}
 	}
 }
 
