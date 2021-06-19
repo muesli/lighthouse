@@ -61,7 +61,7 @@ module pir_sensor(base_radius, wall_thickness, pir_sensor_width, pir_sensor_heig
 		difference() {
 			union() {
 				// base
-				empty(base_radius, pir_sensor_module_height, wall_thickness);
+				empty(base_radius, pir_sensor_module_height, wall_thickness, enable_rim);
 
 				// frame
 				cutInner(base_radius - 2.5*wall_thickness, pir_sensor_module_height) {
