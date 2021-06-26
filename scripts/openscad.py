@@ -12,8 +12,8 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-from __future__ import division
-from __future__ import print_function
+
+
 
 import logging
 import numbers
@@ -71,8 +71,8 @@ def run(
         command += ['--colorscheme=%s' % colorscheme]
 
     if variables is not None:
-        for k, v in variables.items():
-            if isinstance(v, basestring):
+        for k, v in list(variables.items()):
+            if isinstance(v, str):
                 value = '"%s"' % v.replace('"', '\\"')
             elif v is True:
                 value = 'true'
