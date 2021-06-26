@@ -106,12 +106,12 @@ module pir_sensor(base_radius, wall_thickness, pir_sensor_width, pir_sensor_heig
 		}
 
 		// screw threads
-		render() translate([base_radius-2*wall_thickness-0.6, 0, pir_sensor_pcb_height-pir_sensor_thread_diameter/2])
+		render() translate([base_radius-2*wall_thickness-0.6, 0, wall_thickness + pir_sensor_pcb_height - pir_sensor_thread_diameter])
 			rotate([0,90,0])
-				metric_thread(diameter=pir_sensor_thread_diameter, pitch=pir_sensor_thread_pitch, length=3, internal=true, test=preview);
+				metric_thread(diameter=pir_sensor_thread_diameter, pitch=pir_sensor_thread_pitch, length=2.5, internal=true, test=preview);
 		render() translate([base_radius-2*wall_thickness-0.6, 0, wall_thickness + pir_sensor_thread_diameter])
 			rotate([0,90,0])
-				metric_thread(diameter=pir_sensor_thread_diameter, pitch=pir_sensor_thread_pitch, length=3, internal=true, test=preview);
+				metric_thread(diameter=pir_sensor_thread_diameter, pitch=pir_sensor_thread_pitch, length=2.5, internal=true, test=preview);
 	}
 }
 
