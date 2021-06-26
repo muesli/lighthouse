@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        board: [5]
-        base-diameter: [62.8, 67, 80]
+        board: [5, 6]
+        base-diameter: [62.8, 67, 80, 100]
 
     steps:
       - name: Checkout
@@ -34,7 +34,7 @@ jobs:
 
       - name: Generate STLs
         run: |
-          openscad -o build/base_${{ matrix.base-diameter }}_nodemcu_v2.stl -D board=${{ matrix.board }} -D base_diameter=${{ matrix.base-diameter }} base.scad
+          openscad -o build/base_${{ matrix.base-diameter }}mm_board${{ matrix.board }}.stl -D board=${{ matrix.board }} -D base_diameter=${{ matrix.base-diameter }} base.scad
 
       - name: Store STL artifacts
         uses: actions/upload-artifact@v2
@@ -48,7 +48,7 @@ jobs:
     strategy:
       matrix:
         display: [1, 2]
-        base-diameter: [62.8, 67, 80]
+        base-diameter: [62.8, 67, 80, 100]
 
     steps:
       - name: Checkout
@@ -73,7 +73,7 @@ jobs:
 
       - name: Generate STLs
         run: |
-          openscad -o build/module_${{ matrix.base-diameter }}_oled${{ matrix.display }}.stl -D display=${{ matrix.display }} -D base_diameter=${{ matrix.base-diameter }} module_oled.scad
+          openscad -o build/module_${{ matrix.base-diameter }}mm_oled${{ matrix.display }}.stl -D display=${{ matrix.display }} -D base_diameter=${{ matrix.base-diameter }} module_oled.scad
 
       - name: Store STL artifacts
         uses: actions/upload-artifact@v2
@@ -86,7 +86,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        base-diameter: [62.8, 67, 80]
+        base-diameter: [62.8, 67, 80, 100]
 
     steps:
       - name: Checkout
@@ -111,7 +111,7 @@ jobs:
 
       - name: Generate STLs
         run: |
-          openscad -o build/module_${{ matrix.base-diameter }}_pir.stl -D base_diameter=${{ matrix.base-diameter }} module_pir.scad
+          openscad -o build/module_${{ matrix.base-diameter }}mm_pir.stl -D base_diameter=${{ matrix.base-diameter }} module_pir.scad
 
       - name: Store STL artifacts
         uses: actions/upload-artifact@v2
@@ -124,7 +124,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        base-diameter: [62.8, 67, 80]
+        base-diameter: [62.8, 67, 80, 100]
 
     steps:
       - name: Checkout
@@ -149,7 +149,7 @@ jobs:
 
       - name: Generate STLs
         run: |
-          openscad -o build/cap_${{ matrix.base-diameter }}_dome.stl -D base_diameter=${{ matrix.base-diameter }} cap_dome.scad
+          openscad -o build/cap_${{ matrix.base-diameter }}mm_dome.stl -D base_diameter=${{ matrix.base-diameter }} cap_dome.scad
 
       - name: Store STL artifacts
         uses: actions/upload-artifact@v2
@@ -162,7 +162,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        base-diameter: [62.8, 67, 80]
+        base-diameter: [62.8, 67, 80, 100]
 
     steps:
       - name: Checkout
@@ -187,7 +187,7 @@ jobs:
 
       - name: Generate STLs
         run: |
-          openscad -o build/module_${{ matrix.base-diameter }}_empty.stl -D base_diameter=${{ matrix.base-diameter }} module_empty.scad
+          openscad -o build/module_${{ matrix.base-diameter }}mm_empty.stl -D base_diameter=${{ matrix.base-diameter }} module_empty.scad
 
       - name: Store STL artifacts
         uses: actions/upload-artifact@v2
@@ -200,7 +200,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        base-diameter: [62.8, 67, 80]
+        base-diameter: [62.8, 67, 80, 100]
 
     steps:
       - name: Checkout
@@ -225,7 +225,7 @@ jobs:
 
       - name: Generate STLs
         run: |
-          openscad -o build/module_${{ matrix.base-diameter }}_enclosure.stl -D base_diameter=${{ matrix.base-diameter }} module_enclosure.scad
+          openscad -o build/module_${{ matrix.base-diameter }}mm_enclosure.stl -D base_diameter=${{ matrix.base-diameter }} module_enclosure.scad
 
       - name: Store STL artifacts
         uses: actions/upload-artifact@v2
