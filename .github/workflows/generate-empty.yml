@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        base-diameter: [62.8, 70, 80]
+        base-diameter: [62.8, 67, 80]
 
     steps:
       - name: Checkout
@@ -34,3 +34,10 @@ jobs:
       - name: Generate STLs
         run: |
           openscad -o build/module_${{ matrix.base-diameter }}_empty.stl -D base_diameter=${{ matrix.base-diameter }} module_empty.scad
+
+      - name: Publish STLs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          keep_files: true

@@ -29,11 +29,9 @@ jobs:
           sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
           sudo pip install svg.path==2.2
 
-      - name: Create build dir
-        run: mkdir build
-
       - name: Generate Preview
         run: |
+          mkdir build
           xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py assembly.scad assembly.gif 400 75 55
           mv build/animation/assembly.gif build/
           xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py base.scad base.gif
