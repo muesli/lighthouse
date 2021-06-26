@@ -69,8 +69,8 @@ module _oled(base_radius, wall_thickness, enable_rim, oled_width, oled_height, o
 				// frame
 				cutInner(base_radius - wall_thickness - 6, oled_module_height) {
 					cutOuter(base_radius - wall_thickness+0.1, oled_module_height) {
-						translate([base_radius-wall_thickness*2-4, -(oled_pcb_width/2 + wall_thickness/2), wall_thickness])
-							cube([base_radius, oled_pcb_width + wall_thickness, oled_pcb_height-wall_thickness/2]);
+						translate([base_radius-wall_thickness*2-4, -(oled_pcb_width/2 + wall_thickness/2), 0])
+							cube([base_radius, oled_pcb_width + wall_thickness, oled_pcb_height + wall_thickness]);
 					};
 				};
 			}
