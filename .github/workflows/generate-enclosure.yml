@@ -5,6 +5,7 @@ on:
 
 jobs:
   enclosure:
+    concurrency: generate
     runs-on: ubuntu-latest
     strategy:
       matrix:

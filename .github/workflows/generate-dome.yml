@@ -5,6 +5,7 @@ on:
 
 jobs:
   dome:
+    concurrency: generate
     runs-on: ubuntu-latest
     strategy:
       matrix:
