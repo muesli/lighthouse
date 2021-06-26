@@ -24,8 +24,8 @@ its children if the color argument matches the current color we're exporting. Th
 generate an .stl file. Once all single-color .stl files have been exported, a manifest json file is generated that maps
 each .stl filename to its rgb color info."""
 
-from __future__ import division
-from __future__ import print_function
+
+
 
 import errno
 import hashlib

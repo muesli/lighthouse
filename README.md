@@ -49,50 +49,88 @@ This is still a work in progress! Know OpenSCAD and want to contribute? Check ou
 
 ## STL Downloads
 
-#### Bases
-[NodeMCU v2 Base](https://muesli.github.io/modular-case/base_small_nodemcu_v2.stl)
-[NodeMCU v3 Base](https://muesli.github.io/modular-case/base_small_nodemcu_v3.stl)
+### Bases
 
-#### Caps
-
-[Dome Cap](https://muesli.github.io/modular-case/cap_small_dome.stl)
-
-#### OLED Module
-
-[0.96" OLED](https://muesli.github.io/modular-case/module_small_oled096.stl)
-[1.3" OLED](https://muesli.github.io/modular-case/module_small_oled130.stl)
-
-#### PIR Motion Sensor Module
-
-[PIR Motion Sensor](https://muesli.github.io/modular-case/module_small_pir.stl)
-
-#### Sensor Enclosure Module
-
-[Sensor Enclosure](https://muesli.github.io/modular-case/module_small_enclosure.stl)
-
-#### Empty Spacer Module
-
-[Empty Spacer](https://muesli.github.io/modular-case/module_small_empty.stl)
-
-## Rendered animations
-
-#### Small Base for NodeMCU v2
 ![base animation](https://muesli.github.io/modular-case/base.gif)
 
-#### OLED Module
+Diameter 62.8mm:
+- [NodeMCU v2 Base](https://muesli.github.io/modular-case/base_62.8mm_board5.stl)
+
+Diameter 67mm:
+- [NodeMCU v2 Base](https://muesli.github.io/modular-case/base_67mm_board5.stl)
+- [NodeMCU v3 Base](https://muesli.github.io/modular-case/base_67mm_board6.stl)
+
+Diameter 80mm:
+- [NodeMCU v2 Base](https://muesli.github.io/modular-case/base_80mm_board5.stl)
+- [NodeMCU v3 Base](https://muesli.github.io/modular-case/base_80mm_board6.stl)
+
+### Caps
+
+![dome cap animation](https://muesli.github.io/modular-case/cap_dome.gif)
+
+Diameter 62.8mm:
+- [Dome Cap](https://muesli.github.io/modular-case/cap_62.8mm_dome.stl)
+
+Diameter 67mm:
+- [Dome Cap](https://muesli.github.io/modular-case/cap_67mm_dome.stl)
+
+Diameter 80mm:
+- [Dome Cap](https://muesli.github.io/modular-case/cap_80mm_dome.stl)
+
+### OLED Module
+
 ![OLED module animation](https://muesli.github.io/modular-case/module_oled.gif)
 
-#### PIR Motion Sensor Module
+Diameter 62.8mm:
+- [0.96" Display](https://muesli.github.io/modular-case/module_62.8mm_oled1.stl)
+- [1.3" Display](https://muesli.github.io/modular-case/module_62.8mm_oled2.stl)
+
+Diameter 67mm:
+- [0.96" Display](https://muesli.github.io/modular-case/module_67mm_oled1.stl)
+- [1.3" Display](https://muesli.github.io/modular-case/module_67mm_oled2.stl)
+
+Diameter 80mm:
+- [0.96" Display](https://muesli.github.io/modular-case/module_80mm_oled1.stl)
+- [1.3" Display](https://muesli.github.io/modular-case/module_80mm_oled2.stl)
+
+### PIR Motion Sensor Module
+
 ![PIR motion sensor module animation](https://muesli.github.io/modular-case/module_pir.gif)
 
-#### Sensor Enclosure Module
+Diameter 62.8mm:
+- [PIR Module](https://muesli.github.io/modular-case/module_62.8mm_pir.stl)
+
+Diameter 67mm:
+- [PIR Module](https://muesli.github.io/modular-case/module_67mm_pir.stl)
+
+Diameter 80mm:
+- [PIR Module](https://muesli.github.io/modular-case/module_80mm_pir.stl)
+
+### Sensor Enclosure Module
+
 ![enclosure module animation](https://muesli.github.io/modular-case/module_enclosure.gif)
 
-#### Empty Spacer Module
+Diameter 62.8mm:
+- [Sensor enclosure](https://muesli.github.io/modular-case/module_62.8mm_enclosure.stl)
+
+Diameter 67mm:
+- [Sensor enclosure](https://muesli.github.io/modular-case/module_67mm_enclosure.stl)
+
+Diameter 80mm:
+- [Sensor enclosure](https://muesli.github.io/modular-case/module_80mm_enclosure.stl)
+
+### Empty Spacer Module
+
 ![empty module animation](https://muesli.github.io/modular-case/module_empty.gif)
 
-#### Dome Cap
-![dome cap animation](https://muesli.github.io/modular-case/cap_dome.gif)
+Diameter 62.8mm:
+- [Empty Spacer](https://muesli.github.io/modular-case/module_62.8mm_empty.stl)
+
+Diameter 67mm:
+- [Empty Spacer](https://muesli.github.io/modular-case/module_67mm_empty.stl)
+
+Diameter 80mm:
+- [Empty Spacer](https://muesli.github.io/modular-case/module_80mm_empty.stl)
 
 ## Further ideas
 - The node MCU and other boards as well have mounting holes, use them for better support in the base

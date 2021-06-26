@@ -1,0 +1,54 @@
+name: preview-small
+
+on:
+  push:
+
+jobs:
+  preview-small:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        board: [5]
+        base-diameter: [62.8]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install OpenSCAD
+        run: |
+          wget -qO - https://files.openscad.org/OBS-Repository-Key.pub | sudo apt-key add -
+          echo 'deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_20.04/ ./' | sudo tee --append /etc/apt/sources.list.d/openscad.list
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y openscad-nightly
+          sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
+          sudo pip install svg.path==2.2
+
+      - name: Generate Previews
+        run: |
+          mkdir build
+          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py assembly.scad assembly.gif 400 75 55
+          mv build/animation/assembly.gif build/
+          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py base.scad base.gif
+          mv build/animation/base.gif build/
+          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py module_empty.scad module_empty.gif
+          mv build/animation/module_empty.gif build/
+          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py module_enclosure.scad module_enclosure.gif
+          mv build/animation/module_enclosure.gif build/
+          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py module_oled.scad module_oled.gif
+          mv build/animation/module_oled.gif build/
+          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py module_pir.scad module_pir.gif
+          mv build/animation/module_pir.gif build/
+          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py cap_dome.scad cap_dome.gif
+          mv build/animation/cap_dome.gif build/
+          rm -Rf build/animation
+          find build
+
+      - name: Publish Previews
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          keep_files: true
