@@ -23,7 +23,7 @@ jobs:
       - name: Install OpenSCAD
         run: |
           wget -qO - https://files.openscad.org/OBS-Repository-Key.pub | sudo apt-key add -
-          echo 'deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_18.04/ ./' | sudo tee --append /etc/apt/sources.list.d/openscad.list
+          echo 'deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_20.04/ ./' | sudo tee --append /etc/apt/sources.list.d/openscad.list
           sudo apt-get update -qq
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y openscad-nightly
           sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
