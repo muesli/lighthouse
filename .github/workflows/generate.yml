@@ -17,9 +17,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Go
-        uses: actions/setup-go@v2
-
       - name: Install OpenSCAD
         run: |
           wget -qO - https://files.openscad.org/OBS-Repository-Key.pub | sudo apt-key add -
@@ -29,11 +26,9 @@ jobs:
           sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
           sudo pip install svg.path==2.2
 
-      - name: Create build dir
-        run: mkdir build
-
       - name: Generate STLs
         run: |
+          mkdir build
           openscad -o build/base_${{ matrix.base-diameter }}mm_board${{ matrix.board }}.stl -D board=${{ matrix.board }} -D base_diameter=${{ matrix.base-diameter }} base.scad
 
       - name: Store STL artifacts
@@ -68,11 +63,9 @@ jobs:
           sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
           sudo pip install svg.path==2.2
 
-      - name: Create build dir
-        run: mkdir build
-
       - name: Generate STLs
         run: |
+          mkdir build
           openscad -o build/module_${{ matrix.base-diameter }}mm_oled${{ matrix.display }}.stl -D display=${{ matrix.display }} -D base_diameter=${{ matrix.base-diameter }} module_oled.scad
 
       - name: Store STL artifacts
@@ -106,11 +99,9 @@ jobs:
           sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
           sudo pip install svg.path==2.2
 
-      - name: Create build dir
-        run: mkdir build
-
       - name: Generate STLs
         run: |
+          mkdir build
           openscad -o build/module_${{ matrix.base-diameter }}mm_pir.stl -D base_diameter=${{ matrix.base-diameter }} module_pir.scad
 
       - name: Store STL artifacts
@@ -144,11 +135,9 @@ jobs:
           sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
           sudo pip install svg.path==2.2
 
-      - name: Create build dir
-        run: mkdir build
-
       - name: Generate STLs
         run: |
+          mkdir build
           openscad -o build/cap_${{ matrix.base-diameter }}mm_dome.stl -D base_diameter=${{ matrix.base-diameter }} cap_dome.scad
 
       - name: Store STL artifacts
@@ -182,11 +171,9 @@ jobs:
           sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
           sudo pip install svg.path==2.2
 
-      - name: Create build dir
-        run: mkdir build
-
       - name: Generate STLs
         run: |
+          mkdir build
           openscad -o build/module_${{ matrix.base-diameter }}mm_empty.stl -D base_diameter=${{ matrix.base-diameter }} module_empty.scad
 
       - name: Store STL artifacts
@@ -220,11 +207,9 @@ jobs:
           sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
           sudo pip install svg.path==2.2
 
-      - name: Create build dir
-        run: mkdir build
-
       - name: Generate STLs
         run: |
+          mkdir build
           openscad -o build/module_${{ matrix.base-diameter }}mm_enclosure.stl -D base_diameter=${{ matrix.base-diameter }} module_enclosure.scad
 
       - name: Store STL artifacts
