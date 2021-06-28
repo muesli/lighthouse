@@ -26,28 +26,6 @@ Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case
 - [STL 67mm diameter](https://muesli.github.io/modular-case/base_67mm_board6.stl)
 - [STL 80mm diameter](https://muesli.github.io/modular-case/base_80mm_board6.stl)
 
-### Caps
-
-#### Flat
-
-![flat cap animation](https://muesli.github.io/modular-case/cap_flat.gif)
-
-Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/cap_flat.scad) to customize your own version.
-
-- [STL 62.8mm diameter](https://muesli.github.io/modular-case/cap_62.8mm_flat.stl)
-- [STL 67mm diameter](https://muesli.github.io/modular-case/cap_67mm_flat.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/cap_80mm_flat.stl)
-
-#### Dome
-
-![dome cap animation](https://muesli.github.io/modular-case/cap_dome.gif)
-
-Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/cap_dome.scad) to customize your own version.
-
-- [STL 62.8mm diameter](https://muesli.github.io/modular-case/cap_62.8mm_dome.stl)
-- [STL 67mm diameter](https://muesli.github.io/modular-case/cap_67mm_dome.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/cap_80mm_dome.stl)
-
 ### OLED Module
 
 ![OLED module animation](https://muesli.github.io/modular-case/module_oled.gif)
@@ -97,6 +75,28 @@ Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case
 - [STL 62.8mm diameter](https://muesli.github.io/modular-case/module_62.8mm_empty.stl)
 - [STL 67mm diameter](https://muesli.github.io/modular-case/module_67mm_empty.stl)
 - [STL 80mm diameter](https://muesli.github.io/modular-case/module_80mm_empty.stl)
+
+### Caps
+
+#### Flat
+
+![flat cap animation](https://muesli.github.io/modular-case/cap_flat.gif)
+
+Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/cap_flat.scad) to customize your own version.
+
+- [STL 62.8mm diameter](https://muesli.github.io/modular-case/cap_62.8mm_flat.stl)
+- [STL 67mm diameter](https://muesli.github.io/modular-case/cap_67mm_flat.stl)
+- [STL 80mm diameter](https://muesli.github.io/modular-case/cap_80mm_flat.stl)
+
+#### Dome
+
+![dome cap animation](https://muesli.github.io/modular-case/cap_dome.gif)
+
+Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/cap_dome.scad) to customize your own version.
+
+- [STL 62.8mm diameter](https://muesli.github.io/modular-case/cap_62.8mm_dome.stl)
+- [STL 67mm diameter](https://muesli.github.io/modular-case/cap_67mm_dome.stl)
+- [STL 80mm diameter](https://muesli.github.io/modular-case/cap_80mm_dome.stl)
 
 ## Further ideas
 - The node MCU and other boards as well have mounting holes, use them for better support in the base
