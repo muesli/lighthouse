@@ -1,7 +1,10 @@
-# Modular Case
+# Lighthouse
 
-A fully modular & parametric case design for home-made ESP8266/Arduino/Raspberry
-Pi projects, like temperature or motion sensors, information monitors etc.
+A fully modular, parametric, and customizable case design for home-made
+ESP8266/Arduino/Raspberry Pi projects, like temperature or motion sensors,
+information monitors, and more.
+
+Built with OpenSCAD.
 
 ![assembly animation](https://muesli.github.io/modular-case/assembly.gif)
 
@@ -99,6 +102,7 @@ Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case
 - [STL 80mm diameter](https://muesli.github.io/modular-case/cap_80mm_dome.stl)
 
 ## Further ideas
+
 - The node MCU and other boards as well have mounting holes, use them for better support in the base
 - The PCB modules could be fit a little bit tighter into their respective casing
   making it easier e.g. to push a button from the outside
