@@ -73,6 +73,10 @@ module _oled(base_radius, wall_thickness, enable_rim, oled_width, oled_height, o
 							cube([base_radius, oled_pcb_width + wall_thickness, oled_pcb_height + wall_thickness * 2]);
 					};
 				};
+
+				// board dummy
+				%translate([base_radius - 2 * wall_thickness-5, -oled_pcb_width/2, wall_thickness])
+					cube([2, oled_pcb_width, oled_pcb_height]);
 			}
 
 			// spacer for rim of module below
@@ -92,10 +96,6 @@ module _oled(base_radius, wall_thickness, enable_rim, oled_width, oled_height, o
 			// outer recess
 			translate([base_radius - wall_thickness, -oled_width/2 - 2, oled_y_position + wall_thickness])
 				cube([base_radius - 2*wall_thickness, oled_width+4, oled_height]);
-
-			// board dummy
-			%translate([base_radius - 2 * wall_thickness-5, -oled_pcb_width/2, wall_thickness])
-				cube([2, oled_pcb_width, oled_pcb_height]);
 
 			// chamfer top
 			/*
