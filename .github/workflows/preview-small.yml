@@ -2,6 +2,8 @@ name: preview-small
 
 on:
   push:
+    branches:
+      - "master"
 
 jobs:
   preview-small:

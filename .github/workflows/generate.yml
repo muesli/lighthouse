@@ -2,6 +2,8 @@ name: generate
 
 on:
   push:
+    branches:
+      - "master"
 
 jobs:
   base:
