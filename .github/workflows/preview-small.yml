@@ -43,6 +43,8 @@ jobs:
           mv build/animation/module_pir.gif build/
           xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py cap_dome.scad cap_dome.gif
           mv build/animation/cap_dome.gif build/
+          xvfb-run --auto-servernum --server-args "-screen 0 1024x768x24" python -u ./scripts/generate_gif.py cap_flat.scad cap_flat.gif
+          mv build/animation/cap_flat.gif build/
           rm -Rf build/animation
           find build
 
