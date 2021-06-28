@@ -111,7 +111,7 @@ jobs:
           path: build
           retention-days: 1
 
-  dome:
+  capdome:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -139,6 +139,42 @@ jobs:
         run: |
           mkdir build
           openscad -o build/cap_${{ matrix.base-diameter }}mm_dome.stl -D base_diameter=${{ matrix.base-diameter }} cap_dome.scad
+
+      - name: Store STL artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: stl
+          path: build
+          retention-days: 1
+
+  capflat:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        base-diameter: [62.8, 67, 80, 100]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+
+      - name: Install OpenSCAD
+        run: |
+          wget -qO - https://files.openscad.org/OBS-Repository-Key.pub | sudo apt-key add -
+          echo 'deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_20.04/ ./' | sudo tee --append /etc/apt/sources.list.d/openscad.list
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y openscad-nightly
+          sudo ln -s /usr/bin/openscad-nightly /usr/bin/openscad
+          sudo pip install svg.path==2.2
+
+      - name: Generate STLs
+        run: |
+          mkdir build
+          openscad -o build/cap_${{ matrix.base-diameter }}mm_flat.stl -D base_diameter=${{ matrix.base-diameter }} cap_flat.scad
 
       - name: Store STL artifacts
         uses: actions/upload-artifact@v2
@@ -221,7 +257,7 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
-    needs: [base, display, pir, dome, empty, enclosure]
+    needs: [base, display, pir, capdome, capflat, empty, enclosure]
     steps:
       - name: Download STL artifacts
         uses: actions/download-artifact@v2
