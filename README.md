@@ -6,7 +6,7 @@ information monitors, and more.
 
 Built with OpenSCAD.
 
-![assembly animation](https://muesli.github.io/modular-case/assembly.gif)
+![assembly animation](https://muesli.github.io/lighthouse/assembly.gif)
 
 - Thingiverse: https://www.thingiverse.com/thing:3391397
 
@@ -14,92 +14,92 @@ Built with OpenSCAD.
 
 ### Bases
 
-![base animation](https://muesli.github.io/modular-case/base.gif)
+![base animation](https://muesli.github.io/lighthouse/base.gif)
 
-Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/base.scad) to customize your own version.
+Download the [SCAD source](https://raw.githubusercontent.com/muesli/lighthouse/capflat/base.scad) to customize your own version.
 
 #### NodeMCU v2, e.g. https://www.amazon.de/dp/B06Y1LZLLY
 
-- [STL 62.8mm diameter](https://muesli.github.io/modular-case/base_62.8mm_board5.stl)
-- [STL 67mm diameter](https://muesli.github.io/modular-case/base_67mm_board5.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/base_80mm_board5.stl)
+- [STL 62.8mm diameter](https://muesli.github.io/lighthouse/base_62.8mm_board5.stl)
+- [STL 67mm diameter](https://muesli.github.io/lighthouse/base_67mm_board5.stl)
+- [STL 80mm diameter](https://muesli.github.io/lighthouse/base_80mm_board5.stl)
 
 #### NodeMCU v3, e.g. https://www.amazon.de/dp/B06Y1ZPNMS
 
-- [STL 67mm diameter](https://muesli.github.io/modular-case/base_67mm_board6.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/base_80mm_board6.stl)
+- [STL 67mm diameter](https://muesli.github.io/lighthouse/base_67mm_board6.stl)
+- [STL 80mm diameter](https://muesli.github.io/lighthouse/base_80mm_board6.stl)
 
 ### OLED Module
 
-![OLED module animation](https://muesli.github.io/modular-case/module_oled.gif)
+![OLED module animation](https://muesli.github.io/lighthouse/module_oled.gif)
 
-Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/module_oled.scad) to customize your own version.
+Download the [SCAD source](https://raw.githubusercontent.com/muesli/lighthouse/capflat/module_oled.scad) to customize your own version.
 
 #### OLED 0.96", e.g. https://www.amazon.de/dp/B01L9GC470
 
-- [STL 62.8mm diameter](https://muesli.github.io/modular-case/module_62.8mm_oled1.stl)
-- [STL 67mm diameter](https://muesli.github.io/modular-case/module_67mm_oled1.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/module_80mm_oled1.stl)
+- [STL 62.8mm diameter](https://muesli.github.io/lighthouse/module_62.8mm_oled1.stl)
+- [STL 67mm diameter](https://muesli.github.io/lighthouse/module_67mm_oled1.stl)
+- [STL 80mm diameter](https://muesli.github.io/lighthouse/module_80mm_oled1.stl)
 
 #### OLED 1.3", e.g. https://www.amazon.de/dp/B078J78R45
 
-- [STL 62.8 diameter](https://muesli.github.io/modular-case/module_62.8mm_oled2.stl)
-- [STL 67 diameter](https://muesli.github.io/modular-case/module_67mm_oled2.stl)
-- [STL 80 diameter](https://muesli.github.io/modular-case/module_80mm_oled2.stl)
+- [STL 62.8 diameter](https://muesli.github.io/lighthouse/module_62.8mm_oled2.stl)
+- [STL 67 diameter](https://muesli.github.io/lighthouse/module_67mm_oled2.stl)
+- [STL 80 diameter](https://muesli.github.io/lighthouse/module_80mm_oled2.stl)
 
 ### PIR Motion Sensor Module
 
 HC-SR501, e.g. https://www.amazon.de/dp/B07CNBYRQ7
 
-![PIR motion sensor module animation](https://muesli.github.io/modular-case/module_pir.gif)
+![PIR motion sensor module animation](https://muesli.github.io/lighthouse/module_pir.gif)
 
-Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/module_pir.scad) to customize your own version.
+Download the [SCAD source](https://raw.githubusercontent.com/muesli/lighthouse/capflat/module_pir.scad) to customize your own version.
 
-- [STL 62.8mm diameter](https://muesli.github.io/modular-case/module_62.8mm_pir.stl)
-- [STL 67mm diameter](https://muesli.github.io/modular-case/module_67mm_pir.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/module_80mm_pir.stl)
+- [STL 62.8mm diameter](https://muesli.github.io/lighthouse/module_62.8mm_pir.stl)
+- [STL 67mm diameter](https://muesli.github.io/lighthouse/module_67mm_pir.stl)
+- [STL 80mm diameter](https://muesli.github.io/lighthouse/module_80mm_pir.stl)
 
 ### Sensor Enclosure Module
 
-![enclosure module animation](https://muesli.github.io/modular-case/module_enclosure.gif)
+![enclosure module animation](https://muesli.github.io/lighthouse/module_enclosure.gif)
 
-Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/module_enclosure.scad) to customize your own version.
+Download the [SCAD source](https://raw.githubusercontent.com/muesli/lighthouse/capflat/module_enclosure.scad) to customize your own version.
 
-- [STL 62.8mm diameter](https://muesli.github.io/modular-case/module_62.8mm_enclosure.stl)
-- [STL 67mm diameter](https://muesli.github.io/modular-case/module_67mm_enclosure.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/module_80mm_enclosure.stl)
+- [STL 62.8mm diameter](https://muesli.github.io/lighthouse/module_62.8mm_enclosure.stl)
+- [STL 67mm diameter](https://muesli.github.io/lighthouse/module_67mm_enclosure.stl)
+- [STL 80mm diameter](https://muesli.github.io/lighthouse/module_80mm_enclosure.stl)
 
 ### Empty Spacer Module
 
-![empty module animation](https://muesli.github.io/modular-case/module_empty.gif)
+![empty module animation](https://muesli.github.io/lighthouse/module_empty.gif)
 
-Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/module_empty.scad) to customize your own version.
+Download the [SCAD source](https://raw.githubusercontent.com/muesli/lighthouse/capflat/module_empty.scad) to customize your own version.
 
-- [STL 62.8mm diameter](https://muesli.github.io/modular-case/module_62.8mm_empty.stl)
-- [STL 67mm diameter](https://muesli.github.io/modular-case/module_67mm_empty.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/module_80mm_empty.stl)
+- [STL 62.8mm diameter](https://muesli.github.io/lighthouse/module_62.8mm_empty.stl)
+- [STL 67mm diameter](https://muesli.github.io/lighthouse/module_67mm_empty.stl)
+- [STL 80mm diameter](https://muesli.github.io/lighthouse/module_80mm_empty.stl)
 
 ### Caps
 
 #### Flat
 
-![flat cap animation](https://muesli.github.io/modular-case/cap_flat.gif)
+![flat cap animation](https://muesli.github.io/lighthouse/cap_flat.gif)
 
-Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/cap_flat.scad) to customize your own version.
+Download the [SCAD source](https://raw.githubusercontent.com/muesli/lighthouse/capflat/cap_flat.scad) to customize your own version.
 
-- [STL 62.8mm diameter](https://muesli.github.io/modular-case/cap_62.8mm_flat.stl)
-- [STL 67mm diameter](https://muesli.github.io/modular-case/cap_67mm_flat.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/cap_80mm_flat.stl)
+- [STL 62.8mm diameter](https://muesli.github.io/lighthouse/cap_62.8mm_flat.stl)
+- [STL 67mm diameter](https://muesli.github.io/lighthouse/cap_67mm_flat.stl)
+- [STL 80mm diameter](https://muesli.github.io/lighthouse/cap_80mm_flat.stl)
 
 #### Dome
 
-![dome cap animation](https://muesli.github.io/modular-case/cap_dome.gif)
+![dome cap animation](https://muesli.github.io/lighthouse/cap_dome.gif)
 
-Download the [SCAD source](https://raw.githubusercontent.com/muesli/modular-case/capflat/cap_dome.scad) to customize your own version.
+Download the [SCAD source](https://raw.githubusercontent.com/muesli/lighthouse/capflat/cap_dome.scad) to customize your own version.
 
-- [STL 62.8mm diameter](https://muesli.github.io/modular-case/cap_62.8mm_dome.stl)
-- [STL 67mm diameter](https://muesli.github.io/modular-case/cap_67mm_dome.stl)
-- [STL 80mm diameter](https://muesli.github.io/modular-case/cap_80mm_dome.stl)
+- [STL 62.8mm diameter](https://muesli.github.io/lighthouse/cap_62.8mm_dome.stl)
+- [STL 67mm diameter](https://muesli.github.io/lighthouse/cap_67mm_dome.stl)
+- [STL 80mm diameter](https://muesli.github.io/lighthouse/cap_80mm_dome.stl)
 
 ## Further ideas
 
