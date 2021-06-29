@@ -43,9 +43,9 @@ Download the [SCAD source](https://raw.githubusercontent.com/muesli/lighthouse/c
 
 #### OLED 1.3", e.g. https://www.amazon.de/dp/B078J78R45
 
-- [STL 62.8 diameter](https://muesli.github.io/lighthouse/module_62.8mm_oled2.stl)
-- [STL 67 diameter](https://muesli.github.io/lighthouse/module_67mm_oled2.stl)
-- [STL 80 diameter](https://muesli.github.io/lighthouse/module_80mm_oled2.stl)
+- [STL 62.8mm diameter](https://muesli.github.io/lighthouse/module_62.8mm_oled2.stl)
+- [STL 67mm diameter](https://muesli.github.io/lighthouse/module_67mm_oled2.stl)
+- [STL 80mm diameter](https://muesli.github.io/lighthouse/module_80mm_oled2.stl)
 
 ### PIR Motion Sensor Module
 
