@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install OpenSCAD
+      - name: Install Dependencies
         run: |
           wget -qO - https://files.openscad.org/OBS-Repository-Key.pub | sudo apt-key add -
           echo 'deb http://download.opensuse.org/repositories/home:/t-paul/xUbuntu_20.04/ ./' | sudo tee --append /etc/apt/sources.list.d/openscad.list

@@ -14,57 +14,39 @@ module shell(diameter, height, wall_thickness, base) {
 // connectors to receive another module on top
 // these are placed 10deg off-center -> counterparts should be placed -10deg off center
 module connectors_female(angle, base_radius, height, wall_thickness) {
-	width = 7; // in degrees
-	rotate([0,0,angle])
-		intersection(){ // only needed for openscad <2018
-			//rotate_extrude(angle = width, $fn = 200) // works in openscad >2018
-			rotate_extrude($fn = 200) // works in openscad <2018 incl. thingiverse
-				translate([-base_radius + wall_thickness, height-5.7]) //0.3 to center scaled male pin
+	width = 15; // in degrees
+	rotate([0,0,angle-width])
+			rotate_extrude(angle = width, $fn = 200) // works in openscad >2018
+				translate([-base_radius + wall_thickness, height-5.7]) // 0.3 to center scaled male pin
 					polygon(
 						points = [[0,0],[0,12],[1,15],[7.8,15],[7.8,5],[1.8,0], [1.5,5.7],[1.5,5.7+3.8],[1.5+2.5,5.7+6.3],[1.5+4.5,5.7+6.3],[1.5+4.5,5.7]],
-						paths = [[0,1,2,3,4,5], [6,7,8,9,10,11]]
+						paths = [[0,1,2,3,4,5], [6,7,8,9,10]]
 					);
-			// only needed for openscad <2018
-			translate([-3*base_radius,0,height-5.7])
-				cube([3*base_radius,width,13]);
-		}
 }
 
 // connectors to connect to another module below
 module connectors_male(angle, base_radius, wall_thickness) {
-	width = 8; // in degrees for openscad >2018 / in mm for openscad <2018
+	width = 15; // in degrees
 	//pin
-	rotate([0,0,angle]) {
-		intersection() { // only needed for openscad <2018
-			//rotate_extrude(angle = width, $fn = 200)  // works in openscad >2018
-			rotate_extrude($fn = 200) // works in openscad <2018 incl. thingiverse
-				translate([-base_radius + wall_thickness, -5.7 ])
+	rotate([0,0,angle-width]) {
+			rotate_extrude(angle = width, $fn = 200)  // works in openscad >2018
+				translate([-base_radius + wall_thickness, -5.7])
 					translate([0.45,0]) // counteract the non-centered scale (but leave flat on build plate)
 						scale([0.82,0.92]) // scale to leave room for easier connection (=-[0.9,0.9]mm)
 							polygon(
 								points = [[1.5,5.7],[1.5,9.5],[4,12],[6,12],[6,5.7]],
-								paths = [[0,1,2,3,4,5]]
+								paths = [[0,1,2,3,4]]
 							);
-			// only needed for openscad <2018
-			translate([-3*base_radius,0,0])
-				cube([3*base_radius,width,13]);
-		}
 	}
 
 	// pin-base
 	rotate([0,0,angle])
-		intersection() { // only needed for openscad <2018
-			//rotate_extrude(angle = width, $fn = 200) // works in openscad >2018
-			rotate_extrude($fn = 200) // works in openscad <2018 incl. thingieverse
+			rotate_extrude(angle = width, $fn = 200) // works in openscad >2018
 				translate([-base_radius + wall_thickness, -5.7])
 					polygon(
 						points = [[0,5.7],[0,12],[1,15],[6,15],[6,5.7],[1.8,5.7]],
 						paths = [[0,1,2,3,4,5]]
 					);
-			// only needed for openscad <2018
-			translate([-3*base_radius, -width*0.8, 0]) // arbitrarily scaled to 80% width
-				cube([3*base_radius, width*0.8, 13]);
-		}
 }
 
 // cut array of venting holes
