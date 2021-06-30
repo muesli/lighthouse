@@ -3,7 +3,7 @@ set -e
 
 mkdir -p build/animation
 
-DISPLAY=:0 openscad --colorscheme=BeforeDawn --imgsize 640,480 --animate 256 -o build/animation/frame.png -Dpreview=true -Dboard=5 base.scad
+openscad --colorscheme=BeforeDawn --imgsize 640,480 --animate 256 -o build/animation/frame.png -Dpreview=true -Dboard=5 base.scad
 convert build/animation/frame*.png -set delay 1x32 build/base.mp4
 rm -Rf build/animation
 
