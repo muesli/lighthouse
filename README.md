@@ -14,7 +14,7 @@ Built with OpenSCAD.
 
 ### Bases
 
-![base animation](https://muesli.github.io/lighthouse/base.gif)
+https://muesli.github.io/lighthouse/base.mp4
 
 Download the [SCAD source](https://raw.githubusercontent.com/muesli/lighthouse/capflat/base.scad) to customize your own version.
 

@@ -35,6 +35,10 @@ port_zpos = 0; //[-25:1:30]
 /* [Hidden] */
 
 $fn = 128;
+$vpt = [0,0,10]; // assumes object is centered at axes
+$vpd = 250; // arbitrary but based on object size
+$vpr = [45,0,$t * 360]; // rotate on Y axis
+
 base_radius = base_diameter / 2;
 
 use <common.scad>
