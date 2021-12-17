@@ -155,7 +155,7 @@ module base(base_radius, wall_thickness, board, port_width, port_height, port_yp
 	board_size4 = board==3?[101.52, 53.4 ]:board_size3; // Arduino_Mega
 	board_size5 = board==4?[ 51   , 23   ]:board_size4; // Feather_HUZZAH
 	board_size6 = board==5?[ 48   , 26   ]:board_size5; // NodeMCUv2
-	board_size7 = board==6?[ 51   , 31   ]:board_size6; // NodeMCUv3
+	board_size7 = board==6?[ 58   , 31   ]:board_size6; // NodeMCUv3
 	board_size8 = board==7?[ 65   , 30   ]:board_size7; // Raspberry_Pi_ZeroW
 
 	board_size = board_size8; // use last variable from table above here
