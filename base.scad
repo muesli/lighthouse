@@ -149,8 +149,8 @@ module _base(base_radius, wall_thickness, board_length, board_width, port_width,
 
 module base(base_radius, wall_thickness, board, port_width, port_height, port_ypos, port_zpos) {
 	// board dimensions database (unique variables needed due to language restrictions)
-	board_size1 = board==0?[board_width, board_length]:[1,1]; //custom
-	board_size2 = board==1?[ 45   , 18   ]:board_size1; // Arduino_Nano
+	board_size1 = board==0?[board_length,board_width ]:[1,1]; //custom
+	board_size2 = board==1?[ 43.18   , 18.6   ]:board_size1; // Arduino_Nano
 	board_size3 = board==2?[ 68.6 , 53.3 ]:board_size2; // Arduino_Uno
 	board_size4 = board==3?[101.52, 53.4 ]:board_size3; // Arduino_Mega
 	board_size5 = board==4?[ 51   , 23   ]:board_size4; // Feather_HUZZAH
@@ -162,9 +162,9 @@ module base(base_radius, wall_thickness, board, port_width, port_height, port_yp
 
 	// port dimensions [width, height, ypos, zpos]
 	port1 = board==0?[port_width, port_height, port_ypos, port_zpos]:[10,16,5,0]; //custom
-	port2 = board==1?[ 1,1,1,1 ]:port1; // Arduino_Nano
-	port3 = board==2?[ 1,1,1,1 ]:port2; // Arduino_Uno
-	port4 = board==3?[ 1,1,1,1 ]:port3; // Arduino_Mega
+	port2 = board==1?[ 10,7,9.2,1 ]:port1; // Arduino_Nano
+	port3 = board==2?[ 10,7,10,1 ]:port2; // Arduino_Uno
+	port4 = board==3?[ 11.43, 9.5,1,1 ]:port3; // Arduino_Mega
 	port5 = board==4?[ 1,1,1,1 ]:port4; // Feather_HUZZAH
 	port6 = board==5?[ 10, 7, 13  , -4.5 ]:port5; // NodeMCUv2
 	port7 = board==6?[ 10, 7, 15.5, -4.5 ]:port6; // NodeMCUv3
